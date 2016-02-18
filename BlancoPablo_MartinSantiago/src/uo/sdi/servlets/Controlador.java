@@ -89,6 +89,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 	// y el resultado de la ejecuci�n de la acci�n asociada
 	private String buscarJSPSegun(String rol, String opcion, String resultado) {
 		
+		Log.info("Buscar JSP %s -(%s)-> %s -(%s)-> %s", rol,
+				mapaDeNavegacion.get(rol), opcion, 
+				mapaDeNavegacion.get(rol).get(opcion), resultado, mapaDeNavegacion.get(rol).get(opcion).get(resultado));
+		
 		String jspSiguiente=mapaDeNavegacion.get(rol).get(opcion).get(resultado);
 		Log.debug("Elegida página siguiente [%s] para el resultado [%s] tras realizar [%s] con rol [%s]",jspSiguiente,resultado,opcion,rol);
 		return jspSiguiente;		
@@ -102,7 +106,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		Map<String,Accion> mapaPublico=new HashMap<String,Accion>();
 		mapaPublico.put("validarse", new ValidarseAction());
 		mapaPublico.put("listarViajes", new ListarViajesAction());
-		mapaPublico.put("registrarse", new RegistrarseAction());
+		mapaPublico.put("registro", new RegistrarseAction());
 		mapaDeAcciones.put("PUBLICO", mapaPublico);
 		
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
@@ -128,12 +132,9 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		opcionResJSP.put("listarViajes", resJSP);
 		
 		resJSP = new HashMap<String, String>();
-		resJSP.put("EXITO", "/login.jsp");
-		opcionResJSP.put("registrarse", resJSP);
-		
-		resJSP = new HashMap<String, String>();
+		resJSP.put("EXITO", "/principal.jsp");
 		resJSP.put("FRACASO", "/registro.jsp");
-		opcionResJSP.put("registrarse", resJSP);
+		opcionResJSP.put("registro", resJSP);
 		
 		mapaDeNavegacion.put("PUBLICO",opcionResJSP);
 		

@@ -9,7 +9,7 @@
 	
 	<%@ include file="mostrarErrores.jsp" %>
 
-	<form action="registrarse" method="POST">
+	<form action="registro" method="POST">
 	
 		<input type="text" name="nombreUsuario" placeholder="Nombre de usuario">
 		<input type="text" name="nombre" placeholder="Nombre">

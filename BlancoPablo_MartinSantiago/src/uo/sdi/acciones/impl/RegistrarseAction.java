@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.User;
+import uo.sdi.model.UserStatus;
 import uo.sdi.persistence.PersistenceFactory;
 import uo.sdi.persistence.UserDao;
 import alb.util.log.Log;
@@ -35,6 +36,7 @@ public class RegistrarseAction implements Accion {
 		user.setSurname(apellidos);
 		user.setEmail(email);
 		user.setPassword(contraseña);
+		user.setStatus(UserStatus.ACTIVE);
 		
 		//Mostrando errores al usuario
 		List<String> errores = new ArrayList<String>();
@@ -50,7 +52,6 @@ public class RegistrarseAction implements Accion {
 		if(email == null || email.isEmpty()){
 			errores.add("No se puede dejar vacio el campo email");
 		}
-		Log.info("%s = %s", contraseña, contraseña2);
 		if(contraseña == null || !contraseña.equals(contraseña2) 
 				|| contraseña.isEmpty()){
 			errores.add("Las contraseñas deben ser iguales");
@@ -60,8 +61,8 @@ public class RegistrarseAction implements Accion {
 		if(errores.size() == 0){
 			//Guardamos el usuario en la base de datos
 			UserDao ud = PersistenceFactory.newUserDao();
-			Log.info("Usuario %s registrado", user.getLogin());
 			ud.save(user);
+			Log.info("Usuario %s registrado", user.getLogin());
 		}
 		else{
 			Log.error("Error con los datos del registro");
