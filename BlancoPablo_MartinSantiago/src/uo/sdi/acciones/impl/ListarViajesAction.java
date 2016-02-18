@@ -1,10 +1,11 @@
-package uo.sdi.acciones;
+package uo.sdi.acciones.impl;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import uo.sdi.acciones.Accion;
 import uo.sdi.model.Trip;
 import uo.sdi.persistence.PersistenceFactory;
 import alb.util.log.Log;
