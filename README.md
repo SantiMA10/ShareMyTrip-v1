@@ -2,4 +2,4 @@
 
 # Participantes
 * Pablo Blanco Pacho
-* Santiago Martin Agra
+* Santiago Martín Agra
