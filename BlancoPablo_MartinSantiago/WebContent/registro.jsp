@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<form submit="registrarse" method="POST">
+	<form action="registrarse" method="POST">
 	
 		<input type="text" placeholder="Nombre de usuario">
 		<input type="text" placeholder="Nombre">
