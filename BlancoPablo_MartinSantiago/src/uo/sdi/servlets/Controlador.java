@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import uo.sdi.acciones.Accion;
 import uo.sdi.acciones.impl.ListarViajesAction;
 import uo.sdi.acciones.impl.ModificarDatosAction;
+import uo.sdi.acciones.impl.RegistrarseAction;
 import uo.sdi.acciones.impl.ValidarseAction;
 import alb.util.log.Log;
 
@@ -101,6 +102,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		Map<String,Accion> mapaPublico=new HashMap<String,Accion>();
 		mapaPublico.put("validarse", new ValidarseAction());
 		mapaPublico.put("listarViajes", new ListarViajesAction());
+		mapaPublico.put("registrarse", new RegistrarseAction());
 		mapaDeAcciones.put("PUBLICO", mapaPublico);
 		
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
@@ -120,9 +122,18 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		// Mapa de navegación del público
 		resJSP.put("FRACASO","/login.jsp");
 		opcionResJSP.put("validarse", resJSP);
-		resJSP=new HashMap<String, String>();
+		
+		resJSP = new HashMap<String, String>();
 		resJSP.put("EXITO","/listaViajes.jsp");
 		opcionResJSP.put("listarViajes", resJSP);
+		
+		resJSP = new HashMap<String, String>();
+		resJSP.put("EXITO", "/login.jsp");
+		opcionResJSP.put("registrarse", resJSP);
+		
+		resJSP = new HashMap<String, String>();
+		resJSP.put("FRACASO", "/registro.jsp");
+		opcionResJSP.put("registrarse", resJSP);
 		
 		mapaDeNavegacion.put("PUBLICO",opcionResJSP);
 		
