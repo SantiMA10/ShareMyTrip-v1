@@ -3,23 +3,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>ShareMyTrip - Registro</title>
+	<title>ShareMyTrip - Registro</title>
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	
+	<%@ include file="barraNavegacion.jsp" %>
 	<%@ include file="mostrarErrores.jsp" %>
-
-	<form action="registro" method="POST">
 	
-		<input type="text" name="nombreUsuario" placeholder="Nombre de usuario">
-		<input type="text" name="nombre" placeholder="Nombre">
-		<input type="text" name="apellidos" placeholder="Apellidos">
-		<input type="text" name="email" placeholder="Correo electronico">
-		<input type="password" name="password" placeholder="Contraseña">
-		<input type="password" name="password2" placeholder="Repita su contraseña">
+	<div class="contenido">
+		<form action="registro" method="POST">
 		
-		<input type="submit">
-		
-	</form>
+			<input type="text" name="nombreUsuario" placeholder="Nombre de usuario">
+			<input type="text" name="nombre" placeholder="Nombre">
+			<input type="text" name="apellidos" placeholder="Apellidos">
+			<input type="text" name="email" placeholder="Correo electronico">
+			<input type="password" name="password" placeholder="Contraseña">
+			<input type="password" name="password2" placeholder="Repita su contraseña">
+			
+			<input type="submit">
+			
+		</form>
+	</div>
+	
 </body>
 </html>
