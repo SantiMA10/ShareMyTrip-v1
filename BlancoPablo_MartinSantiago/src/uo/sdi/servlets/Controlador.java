@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uo.sdi.acciones.Accion;
+import uo.sdi.acciones.impl.CerrarSesionAction;
 import uo.sdi.acciones.impl.ListarViajesAction;
 import uo.sdi.acciones.impl.ModificarDatosAction;
 import uo.sdi.acciones.impl.RegistrarseAction;
@@ -111,6 +112,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
 		mapaRegistrado.put("modificarDatos", new ModificarDatosAction());
+		mapaRegistrado.put("cerrarSesion", new CerrarSesionAction());
 		mapaDeAcciones.put("REGISTRADO", mapaRegistrado);
 	}
 	
@@ -148,6 +150,12 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP=new HashMap<String, String>();
 		resJSP.put("EXITO","/principal.jsp");
 		opcionResJSP.put("modificarDatos", resJSP);
+		
+		resJSP=new HashMap<String, String>();			//Cerrar sesion
+		resJSP.put("EXITO","/login.jsp");
+		resJSP.put("FRACASO","/login.jsp");
+		opcionResJSP.put("cerrarSesion", resJSP);
+		
 		
 		mapaDeNavegacion.put("REGISTRADO",opcionResJSP);
 	}

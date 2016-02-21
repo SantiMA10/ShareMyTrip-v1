@@ -3,9 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>ShareMyTrip - Página principal del usuario</title>
+	<title>ShareMyTrip - Página principal del usuario</title>
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
+	<%@ include file="barraNavegacionUsuario.jsp" %>
 	<jsp:useBean id="user" class="uo.sdi.model.User" scope="session" />
 	<table>
 		<tr>

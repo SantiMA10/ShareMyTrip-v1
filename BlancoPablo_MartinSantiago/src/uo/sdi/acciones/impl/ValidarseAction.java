@@ -1,5 +1,8 @@
 package uo.sdi.acciones.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,6 +21,7 @@ public class ValidarseAction implements Accion {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		
+		List<String> errores = new ArrayList<String>();
 		String resultado="EXITO";
 		String nombreUsuario=request.getParameter("nombreUsuario");
 		String contrasena=request.getParameter("contrasena");
@@ -33,6 +37,7 @@ public class ValidarseAction implements Accion {
 			}
 			else {
 				session.invalidate();
+				errores.add("Usuario o contraseña incorrecta, intentelo de nuevo");
 				Log.info("El usuario [%s] no está registrado",nombreUsuario);
 				resultado="FRACASO";
 			}
@@ -43,6 +48,8 @@ public class ValidarseAction implements Accion {
 				session.invalidate();
 				resultado="FRACASO";
 			}
+
+		request.getSession().setAttribute("errores", errores);
 		return resultado;
 	}
 	

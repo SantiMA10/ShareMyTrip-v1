@@ -8,6 +8,7 @@
 <body>
 
 	<%@ include file="barraNavegacion.jsp" %>
+	<%@ include file="mostrarErrores.jsp" %>
 	<div class="contenido">
 	  <form action="validarse" method="post">
 	
@@ -20,7 +21,7 @@
 	      	</tr>
 	      	<tr> 
 	    		<td align="right">Contraseña</td>
-		    	<td><input type="text" name="contrasena" align="left" size="15"></td>
+		    	<td><input type="password" name="contrasena" align="left" size="15"></td>
 	      	</tr>
 	      	<tr>
 	    	    <td><input type="submit" value="Enviar"/></td>
