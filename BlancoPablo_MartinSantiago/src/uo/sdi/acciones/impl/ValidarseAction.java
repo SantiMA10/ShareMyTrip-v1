@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.validator.internal.util.Contracts;
+
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
@@ -18,10 +20,11 @@ public class ValidarseAction implements Accion {
 		
 		String resultado="EXITO";
 		String nombreUsuario=request.getParameter("nombreUsuario");
+		String contrasena=request.getParameter("contrasena");
 		HttpSession session=request.getSession();
 		if (session.getAttribute("user")==null) {
 			UserDao dao = PersistenceFactory.newUserDao();
-			User userByLogin = dao.findByLogin(nombreUsuario);
+			User userByLogin = dao.findByLogin(nombreUsuario,contrasena );
 			if (userByLogin!=null) {
 				session.setAttribute("user", userByLogin);
 				int contador=Integer.parseInt((String)request.getServletContext().getAttribute("contador"));
