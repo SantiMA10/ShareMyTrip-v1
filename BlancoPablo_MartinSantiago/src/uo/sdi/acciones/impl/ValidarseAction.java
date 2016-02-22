@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.validator.internal.util.Contracts;
-
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;

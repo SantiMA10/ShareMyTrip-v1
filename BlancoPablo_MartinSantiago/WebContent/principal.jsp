@@ -20,13 +20,7 @@
 			<td>Apellidos:</td><td id="surname"><jsp:getProperty property="surname" name="user" /></td>
 		</tr>
 		<tr>
-			<td>Email:</td>
-			<td id="email"><form action="modificarDatos" method="POST">
-					<input type="text" name="email" size="15"
-						value="<jsp:getProperty property="email" name="user"/>"> 
-					<input type="submit" value="Modificar">
-				</form>
-			</td>
+			<td>Email:</td><td id="email"><jsp:getProperty property="email" name="user"/></td>
 		</tr>
 	</table>
 	<br/>	
