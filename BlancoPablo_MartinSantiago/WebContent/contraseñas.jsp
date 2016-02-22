@@ -15,7 +15,7 @@
 		<tr>
 			<td>Contraseña antigua:</td>
 			<td id="contraseña">
-					<input type="text" name="contraseña" size="15"
+					<input type="password" name="contraseña" size="15"
 						value=""> 
 				
 			</td>
@@ -23,7 +23,7 @@
 		<tr>
 			<td>Contraseña nueva:</td>
 			<td id="contraseñaNueva">
-					<input type="text" name="contraseñaNueva" size="15"
+					<input type="password" name="contraseñaNueva" size="15"
 						value=""> 
 				
 			</td>
@@ -31,7 +31,7 @@
 		<tr>
 			<td>Confirmar contraseña:</td>
 			<td id="contraseñaNuevaConfirmada">
-					<input type="text" name="contraseñaNuevaConfirmada" size="15"
+					<input type="password" name="contraseñaNuevaConfirmada" size="15"
 						value=""> 
 				
 			</td>
