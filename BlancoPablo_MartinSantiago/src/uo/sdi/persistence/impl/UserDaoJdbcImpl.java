@@ -81,9 +81,17 @@ public class UserDaoJdbcImpl implements UserDao {
 	@Override
 	public User findByLogin(String login,String password) {
 		return jdbcTemplate.queryForObject(
-				"USER_FIND_BY_LOGIN", 
+				"USER_FIND_BY_LOGIN_AND_PASSWORD", 
 				new UserMapper(), 
 				login,password
+			);
+	}
+	@Override
+	public User findByLogin(String login) {
+		return jdbcTemplate.queryForObject(
+				"USER_FIND_BY_LOGIN", 
+				new UserMapper(), 
+				login
 			);
 	}
 

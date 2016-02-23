@@ -38,29 +38,35 @@ public class RegistrarseAction implements Accion {
 		user.setPassword(contraseña);
 		user.setStatus(UserStatus.ACTIVE);
 		
+		UserDao ud = PersistenceFactory.newUserDao();
+		
 		//Mostrando errores al usuario
 		List<String> errores = new ArrayList<String>();
-		if(nombreUsuario == null || nombreUsuario.isEmpty()){
-			errores.add("No se puede dejar vacio el campo nombre de Usuario");
+		if(ud.findByLogin(nombreUsuario) == null){
+			if(nombreUsuario == null || nombreUsuario.isEmpty()){
+				errores.add("No se puede dejar vacio el campo nombre de Usuario");
+			}
+			if(nombre == null || nombre.isEmpty()){
+				errores.add("No se puede dejar vacio el campo nombre");
+			}
+			if(apellidos == null || apellidos.isEmpty()){
+				errores.add("No se puede dejar vacio el campo apellidos");
+			}
+			if(email == null || email.isEmpty()){
+				errores.add("No se puede dejar vacio el campo email");
+			}
+			if(contraseña == null || !contraseña.equals(contraseña2) 
+					|| contraseña.isEmpty()){
+				errores.add("Las contraseñas deben ser iguales");
+			}
 		}
-		if(nombre == null || nombre.isEmpty()){
-			errores.add("No se puede dejar vacio el campo nombre");
-		}
-		if(apellidos == null || apellidos.isEmpty()){
-			errores.add("No se puede dejar vacio el campo apellidos");
-		}
-		if(email == null || email.isEmpty()){
-			errores.add("No se puede dejar vacio el campo email");
-		}
-		if(contraseña == null || !contraseña.equals(contraseña2) 
-				|| contraseña.isEmpty()){
-			errores.add("Las contraseñas deben ser iguales");
+		else{
+			errores.add("Ya existe un usuario con ese nombre de usuario.");
 		}
 		request.getSession().setAttribute("errores", errores);
 		
 		if(errores.size() == 0){
 			//Guardamos el usuario en la base de datos
-			UserDao ud = PersistenceFactory.newUserDao();
 			ud.save(user);
 			Log.info("Usuario %s registrado", user.getLogin());
 		}
