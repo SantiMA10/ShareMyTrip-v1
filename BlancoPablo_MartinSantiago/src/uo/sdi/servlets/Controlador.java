@@ -98,10 +98,6 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 	// y el resultado de la ejecuci�n de la acci�n asociada
 	private String buscarJSPSegun(String rol, String opcion, String resultado) {
 		
-		Log.info("Buscar JSP %s -(%s)-> %s -(%s)-> %s", rol,
-				mapaDeNavegacion.get(rol), opcion, 
-				mapaDeNavegacion.get(rol).get(opcion), resultado, mapaDeNavegacion.get(rol).get(opcion).get(resultado));
-		
 		String jspSiguiente=mapaDeNavegacion.get(rol).get(opcion).get(resultado);
 		Log.debug("Elegida página siguiente [%s] para el resultado [%s] tras realizar [%s] con rol [%s]",jspSiguiente,resultado,opcion,rol);
 		return jspSiguiente;		
