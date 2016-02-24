@@ -7,8 +7,8 @@
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	<%@ include file="barraNavegacion.jsp" %>
-	<%@ include file="mostrarErrores.jsp" %>
+	<%@ include file="parts/barraNavegacion.jsp" %>
+	<%@ include file="parts/mostrarErrores.jsp" %>
 	
 	<div class="contenido">
 		<form action="registro" method="POST">
