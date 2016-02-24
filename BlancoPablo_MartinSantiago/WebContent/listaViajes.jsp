@@ -15,7 +15,6 @@
 <body>
 <%@ include file="parts/barraNavegacion.jsp" %>
 	<div class="container">
-	${user}
 		<table class="table table-hover">
 				<tr>
 					<th>ID viaje</th>

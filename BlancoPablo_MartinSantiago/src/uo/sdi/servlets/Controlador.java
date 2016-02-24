@@ -55,11 +55,11 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 
 		} catch(Exception e) {
 			
-			req.getSession().invalidate();
+			//req.getSession().invalidate();
 			
 			Log.error("Se ha producido alguna excepción no manejada [%s]",e);
 			
-			accion = buscarAccionParaOpcion("PUBLICO", "listarViajes");
+			accion = new ListarViajesAction();
 			resultado=accion.execute(req, res);
 			rolDespues=obtenerRolDeSesion(req);
 			jspSiguiente=buscarJSPSegun(rolDespues, "listarViajes", resultado);
@@ -162,6 +162,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP.put("EXITO","/login.jsp");
 		resJSP.put("FRACASO","/login.jsp");
 		opcionResJSP.put("cerrarSesion", resJSP);
+		
+		resJSP = new HashMap<String, String>(); 		//Listar
+		resJSP.put("EXITO","/listaViajes.jsp");
+		opcionResJSP.put("listarViajes", resJSP);
 		
 		resJSP=new HashMap<String, String>();			//Modificar contraseña
 		resJSP.put("EXITO","/principal.jsp");
