@@ -59,7 +59,13 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			Log.error("Se ha producido alguna excepción no manejada [%s]",e);
 			
-			jspSiguiente="/index.jsp";
+			accion = buscarAccionParaOpcion("PUBLICO", "listarViajes");
+			resultado=accion.execute(req, res);
+			rolDespues=obtenerRolDeSesion(req);
+			jspSiguiente=buscarJSPSegun(rolDespues, "listarViajes", resultado);
+
+			jspSiguiente="/listaViajes.jsp";
+			req.setAttribute("jspSiguiente", jspSiguiente);
 			
 		}
 			
@@ -116,6 +122,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaRegistrado.put("modificarDatos", new ModificarDatosAction());
 		mapaRegistrado.put("modificarContraseña", new ModificarContraseñaAction());
 		mapaRegistrado.put("cerrarSesion", new CerrarSesionAction());
+		mapaRegistrado.put("listarViajes", new ListarViajesAction());
 		mapaDeAcciones.put("REGISTRADO", mapaRegistrado);
 	}
 	
