@@ -61,11 +61,9 @@
 			<h3>Participantes</h3>
 			${ participantes }
 			
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#pedirPlaza">Solicitar plaza</button>
-
-			<%@ include file="parts/modalPedirPlaza.jsp"%>
+			<form action="pedirPlaza?id=${ viaje.id }">
+				<input type="submit" value="Solicitar plaza">
+			</form>
 		</c:if>
 	</div>
 </body>
