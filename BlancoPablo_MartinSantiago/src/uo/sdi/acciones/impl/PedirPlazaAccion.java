@@ -4,8 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import uo.sdi.acciones.Accion;
-import uo.sdi.model.Seat;
-import uo.sdi.model.SeatStatus;
+import uo.sdi.model.Application;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
 import alb.util.log.Log;
@@ -16,14 +15,12 @@ public class PedirPlazaAccion implements Accion {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		
-		Seat plaza = new Seat();
+		Application plaza = new Application();
 		plaza.setTripId(Long.valueOf(request.getParameter("id")));
-		plaza.setComment(request.getParameter("comentario"));
 		plaza.setUserId(((User)request.getSession().getAttribute("user")).getId());
-		plaza.setStatus(SeatStatus.ACCEPTED);
 		
-		Log.info("Plaza %s", plaza.toString());
-		PersistenceFactory.newSeatDao().save(plaza);
+		Log.info("Plaza solicitada %s", plaza.toString());
+		PersistenceFactory.newApplicationDao().save(plaza);
 		
 		return "EXITO";
 	}
