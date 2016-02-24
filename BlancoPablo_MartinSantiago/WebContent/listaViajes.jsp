@@ -14,8 +14,9 @@
 </head>
 <body>
 <%@ include file="parts/barraNavegacion.jsp" %>
-	<div class="contenido">
-		<table border="1" align="center">
+	<div class="container">
+	${user}
+		<table class="table table-hover">
 				<tr>
 					<th>ID viaje</th>
 					<th>Origen</th>
