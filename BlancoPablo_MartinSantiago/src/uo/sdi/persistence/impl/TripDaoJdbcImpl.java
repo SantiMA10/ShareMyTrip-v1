@@ -156,6 +156,11 @@ public class TripDaoJdbcImpl implements TripDao {
 	public List<Trip> findAll() {
 		return jdbcTemplate.queryForList("TRIP_FIND_ALL", new TripMapper());
 	}
+	
+	@Override
+	public List<Trip> findAllOpenAndPaxAvailables() {
+		return jdbcTemplate.queryForList("TRIP_FIND_ALL_OPEN_AND_PAX_AVAILABLES", new TripMapper());
+	}
 
 	@Override
 	public Trip findByPromoterIdAndArrivalDate(Long id, Date arrivalDate) {

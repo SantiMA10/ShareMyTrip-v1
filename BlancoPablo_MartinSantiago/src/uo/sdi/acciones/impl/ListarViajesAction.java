@@ -19,7 +19,7 @@ public class ListarViajesAction implements Accion {
 		List<Trip> viajes;
 		
 		try {
-			viajes=PersistenceFactory.newTripDao().findAll();
+			viajes=PersistenceFactory.newTripDao().findAllOpenAndPaxAvailables();
 			request.setAttribute("listaViajes", viajes);
 			Log.debug("Obtenida lista de viajes conteniendo [%d] viajes", viajes.size());
 		}
