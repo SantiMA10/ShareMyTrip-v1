@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	<%@ include file="barraNavegacion.jsp" %>
+	<%@ include file="parts/barraNavegacion.jsp" %>
 	<jsp:useBean id="user" class="uo.sdi.model.User" scope="session" />
 	
 	<form action="modificarDatos" method="POST">

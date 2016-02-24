@@ -7,8 +7,8 @@
 </head>
 <body>
 
-	<%@ include file="barraNavegacion.jsp" %>
-	<%@ include file="mostrarErrores.jsp" %>
+	<%@ include file="parts/barraNavegacion.jsp" %>
+	<%@ include file="parts/mostrarErrores.jsp" %>
 	<div class="contenido">
 	  <form action="validarse" method="post">
 	
