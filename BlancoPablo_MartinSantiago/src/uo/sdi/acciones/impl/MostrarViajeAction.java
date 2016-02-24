@@ -1,9 +1,13 @@
 package uo.sdi.acciones.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import uo.sdi.acciones.Accion;
+import uo.sdi.model.Application;
 import uo.sdi.model.Trip;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
@@ -17,12 +21,22 @@ public class MostrarViajeAction implements Accion {
 		
 		Trip viaje;
 		User promotor;
+		List<User> participantes = new ArrayList<>();
 		
 		try {
+			
 			viaje=PersistenceFactory.newTripDao().findById(Long.valueOf(request.getParameter("id")));
 			promotor = PersistenceFactory.newUserDao().findById(viaje.getPromoterId());
+			List<Application> peticiones = PersistenceFactory.newApplicationDao().findByTripId(viaje.getId());
+			
+			for(Application application : peticiones){
+				participantes.add(PersistenceFactory.newUserDao().findById(application.getUserId()));
+			}
+			
 			request.setAttribute("viaje", viaje);
 			request.setAttribute("promotor", promotor);
+			request.setAttribute("participantes", participantes);
+			
 			Log.debug("Obtenida informacion del viaje [%d]", viaje);
 		}
 		catch (Exception e) {

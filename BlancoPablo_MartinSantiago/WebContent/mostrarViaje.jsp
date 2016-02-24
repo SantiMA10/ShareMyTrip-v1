@@ -16,7 +16,6 @@
 	<%@ include file="parts/barraNavegacion.jsp"%>
 	<div class="container">
 		<h2>${ viaje.departure.city }-${  viaje.destination.city }</h2>
-		<hr>
 		<table class="table talbe-condensed">
 			<tr>
 				<td>Fecha de cierre de inscripciones:</td>
@@ -32,7 +31,7 @@
 			</tr>
 			<tr>
 				<td>Plazas</td>
-				<td>${ viaje.availablePax } / ${ viaje.maxPax }</td>
+				<td>${ viaje.availablePax }/ ${ viaje.maxPax }</td>
 			</tr>
 			<tr>
 				<td>Coste del viaje:</td>
@@ -45,7 +44,22 @@
 		</table>
 		<c:if test="${ user != null }">
 			<h3>Sobre el promotor</h3>
-		${ promotor }
+			<table class="table talbe-condensed">
+				<tr>
+					<td>Nombre:</td>
+					<td>${ promotor.name } ${ promotor.surname }</td>
+				</tr>
+				<tr>
+					<td>Valoracion:</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<h3>Participantes</h3>
+			${ participantes }
 		</c:if>
 	</div>
 </body>
