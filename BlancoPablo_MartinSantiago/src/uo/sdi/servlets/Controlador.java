@@ -59,7 +59,8 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			Log.error("Se ha producido alguna excepción no manejada [%s]",e);
 			
-			jspSiguiente="/login.jsp";
+			jspSiguiente="/index.jsp";
+			
 		}
 			
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jspSiguiente); 
