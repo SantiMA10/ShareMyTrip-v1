@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="./style.css">
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="bootstrap/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td>Plazas</td>
-				<td>${ viaje.availablePax }/ ${ viaje.maxPax }</td>
+				<td>${ viaje.availablePax }/${ viaje.maxPax }</td>
 			</tr>
 			<tr>
 				<td>Coste del viaje:</td>
@@ -47,7 +47,7 @@
 			<table class="table talbe-condensed">
 				<tr>
 					<td>Nombre:</td>
-					<td>${ promotor.name } ${ promotor.surname }</td>
+					<td>${ promotor.name }${ promotor.surname }</td>
 				</tr>
 				<tr>
 					<td>Valoracion:</td>
@@ -60,6 +60,12 @@
 			</table>
 			<h3>Participantes</h3>
 			${ participantes }
+			
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary btn-lg"
+				data-toggle="modal" data-target="#pedirPlaza">Solicitar plaza</button>
+
+			<%@ include file="parts/modalPedirPlaza.jsp"%>
 		</c:if>
 	</div>
 </body>
