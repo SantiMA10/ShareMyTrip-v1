@@ -61,8 +61,8 @@
 			<h3>Participantes</h3>
 			${ participantes }
 			
-			<form action="pedirPlaza?id=${ viaje.id }">
-				<input type="submit" value="Solicitar plaza">
+			<form action="pedirPlaza?id=${ viaje.id }" method="post">
+				<input type="submit" value="Pedir plaza">
 			</form>
 		</c:if>
 	</div>
