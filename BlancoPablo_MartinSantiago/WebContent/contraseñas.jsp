@@ -5,6 +5,10 @@
 <head>
 	<title>ShareMyTrip - Datos personales</title>
 	<link rel="stylesheet" href="./style.css">
+
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/jquery.min.js"></script>
 </head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp" %>
