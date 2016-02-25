@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.Application;
+import uo.sdi.model.Seat;
+import uo.sdi.model.SeatStatus;
 import uo.sdi.model.Trip;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
@@ -30,7 +32,11 @@ public class MostrarViajeAction implements Accion {
 			List<Application> peticiones = PersistenceFactory.newApplicationDao().findByTripId(viaje.getId());
 			
 			for(Application application : peticiones){
-				participantes.add(PersistenceFactory.newUserDao().findById(application.getUserId()));
+				User participante = PersistenceFactory.newUserDao().findById(application.getUserId());
+				Seat asiento = PersistenceFactory.newSeatDao().findByUserAndTrip(participante.getId(), viaje.getId());
+				
+				if(asiento != null && asiento.getStatus().equals(SeatStatus.ACCEPTED))
+					participantes.add(participante);
 			}
 			
 			request.setAttribute("viaje", viaje);
