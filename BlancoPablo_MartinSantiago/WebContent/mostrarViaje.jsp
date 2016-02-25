@@ -62,7 +62,7 @@
 					<td>Valoracion:</td>
 					<td>${ puntuaciones.getAverageRatingValue(promotor.id) }</td>
 				</tr>
-				<c:forEach var="comentario" items="${ puntuaciones.getComments(participante.id) }">
+				<c:forEach var="comentario" items="${ puntuaciones.getComments(promotor.id) }">
 					<tr>
 						<td>Comentario:</td>
 						<td>${ comentario }</td>
