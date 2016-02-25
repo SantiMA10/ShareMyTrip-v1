@@ -11,7 +11,6 @@
 	<script src="bootstrap/jquery.min.js"></script>
 </head>
 <body>
-
 	<%@ include file="parts/barraNavegacion.jsp"%>
 	<%@ include file="parts/mostrarErrores.jsp" %>
 	<h2>PAGINA EN MANTENIMIENTO</h2>
