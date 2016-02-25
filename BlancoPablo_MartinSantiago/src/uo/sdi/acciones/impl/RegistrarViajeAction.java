@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import alb.util.log.Log;
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.AddressPoint;
 import uo.sdi.model.Trip;
@@ -168,7 +169,8 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setDepartureDate(fechaSalidaDate);
 				viaje.setArrivalDate(fechaLlegadaDate);
 				viaje.setClosingDate(fechaLimiteDate);
-				viaje.setAvailablePax(Integer.parseInt(plazasmaximo) - Integer.parseInt(plazasrestantes));
+				viaje.setAvailablePax(Integer.parseInt(plazasmaximo)
+						- Integer.parseInt(plazasrestantes));
 				viaje.setMaxPax(Integer.parseInt(plazasmaximo));
 				viaje.setEstimatedCost(Double.parseDouble(coste));
 				viaje.setComments(comentarios);
@@ -176,11 +178,14 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setPromoterId(user.getId());
 
 				PersistenceFactory.newTripDao().save(viaje);
+				Log.debug("Viaje [%s] registrado correctamente", viaje.getId());
 			} else {
 				resultado = "FRACASO";
+				Log.debug("Error en los datos");
 			}
 		} else {
 			resultado = "FRACASO";
+			Log.debug("Error en los datos");
 		}
 
 		return resultado;
