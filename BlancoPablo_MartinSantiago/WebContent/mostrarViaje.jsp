@@ -68,7 +68,27 @@
 				</tr>
 			</table>
 			<h3>Participantes</h3>
-			${ participantes }
+			<c:if test="${ participantes.size() == 0 }">
+				No hay participantes aun.
+			</c:if>
+			<c:if test="${ participantes.size() > 0 }">
+				<c:forEach var="participante" items="${participantes}" varStatus="i">
+					<table class="table talbe-condensed">
+				<tr>
+					<td>Nombre:</td>
+					<td>${ participante.name }${ participante.surname }</td>
+				</tr>
+				<tr>
+					<td>Valoracion:</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+				</c:forEach>
+			</c:if>
 			
 			<form action="pedirPlaza?id=${ viaje.id }" method="post">
 				<input type="submit" value="Pedir plaza">
