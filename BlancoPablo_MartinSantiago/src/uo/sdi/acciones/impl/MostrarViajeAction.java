@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.Application;
+import uo.sdi.model.Seat;
+import uo.sdi.model.SeatStatus;
 import uo.sdi.model.Trip;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
+import uo.sdi.util.RatingsContainer;
 import alb.util.log.Log;
 
 public class MostrarViajeAction implements Accion {
@@ -22,6 +25,7 @@ public class MostrarViajeAction implements Accion {
 		Trip viaje;
 		User promotor;
 		List<User> participantes = new ArrayList<>();
+		RatingsContainer puntuaciones = new RatingsContainer();
 		
 		try {
 			
@@ -29,13 +33,25 @@ public class MostrarViajeAction implements Accion {
 			promotor = PersistenceFactory.newUserDao().findById(viaje.getPromoterId());
 			List<Application> peticiones = PersistenceFactory.newApplicationDao().findByTripId(viaje.getId());
 			
+			puntuaciones.addRating(promotor.getId(), PersistenceFactory.newRatingDao().findByAboutUser(promotor.getId()));
+			
+			System.out.println(puntuaciones);
+			
 			for(Application application : peticiones){
-				participantes.add(PersistenceFactory.newUserDao().findById(application.getUserId()));
+				User participante = PersistenceFactory.newUserDao().findById(application.getUserId());
+				Seat asiento = PersistenceFactory.newSeatDao().findByUserAndTrip(participante.getId(), viaje.getId());
+				
+				if(asiento != null && asiento.getStatus().equals(SeatStatus.ACCEPTED)){
+					participantes.add(participante);
+					puntuaciones.addRating(participante.getId(), PersistenceFactory.newRatingDao().findByAboutUser(participante.getId()));
+				}
+				
 			}
 			
 			request.setAttribute("viaje", viaje);
 			request.setAttribute("promotor", promotor);
 			request.setAttribute("participantes", participantes);
+			request.setAttribute("puntuaciones", puntuaciones);
 			
 			Log.debug("Obtenida informacion del viaje [%d]", viaje);
 		}
