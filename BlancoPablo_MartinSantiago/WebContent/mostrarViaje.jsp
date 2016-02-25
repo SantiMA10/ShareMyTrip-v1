@@ -60,13 +60,20 @@
 				</tr>
 				<tr>
 					<td>Valoracion:</td>
-					<td>4</td>
+					<td>${ puntuaciones.getAverageRatingValue(promotor.id) }</td>
 				</tr>
+				<c:forEach var="comentario" items="${ puntuaciones.getComments(participante.id) }">
+					<tr>
+						<td>Comentario:</td>
+						<td>${ comentario }</td>
+					</tr>
+				</c:forEach>
 				<tr>
 					<td></td>
 					<td></td>
 				</tr>
 			</table>
+			
 			<h3>Participantes</h3>
 			<c:if test="${ participantes.size() == 0 }">
 				No hay participantes aun.
@@ -80,8 +87,14 @@
 				</tr>
 				<tr>
 					<td>Valoracion:</td>
-					<td>4</td>
+					<td>${ puntuaciones.getAverageRatingValue(participante.id) }</td>
 				</tr>
+				<c:forEach var="comentario" items="${ puntuaciones.getComments(participante.id) }">
+					<tr>
+						<td>Comentario:</td>
+						<td>${ comentario }</td>
+					</tr>
+				</c:forEach>
 				<tr>
 					<td></td>
 					<td></td>
