@@ -204,7 +204,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP=new HashMap<String, String>();			//Registrar un viaje
 		resJSP.put("EXITO","/misviajes.jsp");
 		resJSP.put("FRACASO","/registrarViaje.jsp");
-		opcionResJSP.put("modificarContraseña", resJSP);
+		opcionResJSP.put("registrarViaje", resJSP);
 		
 		
 		mapaDeNavegacion.put("REGISTRADO",opcionResJSP);

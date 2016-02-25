@@ -13,6 +13,6 @@
 </head>
 <body>
 	<h2>PAGINA EN MANTENIMIENTO</h2>
-	<a href="registrarViajes.jsp">Registra algun viaje mientras haces ASR</a>
+	<a href="registrarViaje.jsp">Registra algun viaje mientras haces ASR</a>
 </body>
 </html>

@@ -1,20 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<head>
-<title>ShareMyTrip - Mis viajes</title>
+<title>ShareMyTrip - Registrar viaje</title>
 <link rel="stylesheet" href="./style.css">
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="bootstrap/jquery.min.js"></script>
 </head>
-<title>ShareMyTrip - Registrar viaje</title>
-</head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
+	<%@ include file="parts/mostrarErrores.jsp" %>
+	
 	<h3>Registrar viaje</h3>
 	<form action="registrarViaje" method="POST">
 		<div class="container">
@@ -61,7 +60,7 @@
 					<tr>
 						<td>Hora de salida:</td>
 						<td id="horasalida"><input type="time" name="horasalida"
-							size="15" value=""></td>
+							size="15"></td>
 					</tr>
 
 				</table>
@@ -118,7 +117,7 @@
 				<table>
 
 					<tr>
-						<td><h4> Datos adicionales:</h4></td>
+						<td><h4>Datos adicionales:</h4></td>
 					</tr>
 					<tr>
 						<td>Fecha limite de solicitud:</td>
@@ -137,12 +136,12 @@
 					</tr>
 					<tr>
 						<td>Numero de plazas maximo:</td>
-						<td id="plazasmaximo"><input type="text" name="plazasmaximo"
-							size="15" value=""></td>
+						<td id="plazasmaximo"><input type="number"
+							name="plazasmaximo" size="15" value=""></td>
 					</tr>
 					<tr>
 						<td>Numero de plazas restantes:</td>
-						<td id="plazasrestantes"><input type="text"
+						<td id="plazasrestantes"><input type="number"
 							name="plazasrestantes" size="15" value=""></td>
 					</tr>
 
