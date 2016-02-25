@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="parts/comprobarNavegacion.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -11,6 +12,7 @@
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<fmt:setLocale value="es_ES"/>
 </head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
@@ -19,15 +21,16 @@
 		<table class="table talbe-condensed">
 			<tr>
 				<td>Fecha de cierre de inscripciones:</td>
-				<td>${ viaje.closingDate }</td>
+				<td><fmt:formatDate value="${ viaje.closingDate }"  type="both" dateStyle="full" /></td>
+				
 			</tr>
 			<tr>
 				<td>Fecha de salida:</td>
-				<td>${ viaje.departureDate }</td>
+				<td><fmt:formatDate value="${ viaje.departureDate }" type="both" dateStyle="full" /></td>
 			</tr>
 			<tr>
 				<td>Fecha de llegada:</td>
-				<td>${ viaje.arrivalDate }</td>
+				<td><fmt:formatDate value="${ viaje.arrivalDate }"  type="both" dateStyle="full" /></td>
 			</tr>
 			<tr>
 				<td>Plazas</td>
