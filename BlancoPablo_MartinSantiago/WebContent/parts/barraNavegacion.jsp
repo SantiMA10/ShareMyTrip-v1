@@ -13,7 +13,7 @@
 		<c:if test="${user != null}">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="listarViajes">Viajes disponibles</a></li>
-				<li><a href="misviajes.jsp">Mis viajes</a></li>
+				<li><a id= "listarViajesPrivados" href="listarViajesPrivados">Mis viajes</a></li>
 				<li><a href="datosPersonales.jsp">Mis datos</a></li>
 				<li><a id = "cerrarSesion" href="cerrarSesion">Salir</a></li>
 			</ul>
