@@ -28,25 +28,31 @@ public class ModificarContraseñaAction implements Accion {
 		String contraseñaNueva = request.getParameter("contraseñaNueva");
 		String contraseñaNuevaConfirmada = request
 				.getParameter("contraseñaNuevaConfirmada");
+		if (usuario != null) {
+			if (!compararContraseñas(usuario.getPassword(), contraseña))
+				errores.add("La contraseña introducida no es correcta");
+			if (!compararContraseñas(contraseñaNueva, contraseñaNuevaConfirmada))
+				errores.add("La contraseña nueva no coincide");
+			if (errores.isEmpty()) {
+				try {
+					usuario.setPassword(contraseñaNueva);
+					UserDao dao = PersistenceFactory.newUserDao();
+					dao.update(usuario);
+					Log.debug(
+							"Modificada contraseña de [%s] con el valor [%s]",
+							usuario.getLogin(), contraseñaNueva);
+				} catch (Exception e) {
 
-		if (!compararContraseñas(usuario.getPassword(), contraseña))
-			errores.add("La contraseña introducida no es correcta");
-		if (!compararContraseñas(contraseñaNueva, contraseñaNuevaConfirmada))
-			errores.add("La contraseña nueva no coincide");
-		if (errores.isEmpty()) {
-			try {
-				usuario.setPassword(contraseñaNueva);
-				UserDao dao = PersistenceFactory.newUserDao();
-				dao.update(usuario);
-				Log.debug("Modificada contraseña de [%s] con el valor [%s]",
-						usuario.getLogin(), contraseñaNueva);
-			} catch (Exception e) {
-
-				Log.error(
-						"Algo ha ocurrido actualizando la contraseña de [%s]",
-						usuario.getLogin());
-				resultado = "FRACASO";
+					Log.error(
+							"Algo ha ocurrido actualizando la contraseña de [%s]",
+							usuario.getLogin());
+					resultado = "FRACASO";
+				}
 			}
+		}
+		else{
+			Log.debug("El usuario no esta registrado");
+			resultado = "FRACASO";
 		}
 
 		return resultado;
