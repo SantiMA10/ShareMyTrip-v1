@@ -56,7 +56,7 @@
 			<table class="table talbe-condensed">
 				<tr>
 					<td>Nombre:</td>
-					<td>${ promotor.name }${ promotor.surname }</td>
+					<td>${ promotor.name } ${ promotor.surname }</td>
 				</tr>
 				<tr>
 					<td>Valoracion:</td>
@@ -76,7 +76,7 @@
 					<table class="table talbe-condensed">
 				<tr>
 					<td>Nombre:</td>
-					<td>${ participante.name }${ participante.surname }</td>
+					<td>${ participante.name } ${ participante.surname }</td>
 				</tr>
 				<tr>
 					<td>Valoracion:</td>
