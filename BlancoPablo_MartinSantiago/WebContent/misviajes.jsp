@@ -12,7 +12,11 @@
 	<script src="bootstrap/jquery.min.js"></script>
 </head>
 <body>
-	<h2>PAGINA EN MANTENIMIENTO</h2>
-	<a href="registrarViajes.jsp">Registra algun viaje mientras haces ASR</a>
+	<%@ include file="parts/barraNavegacion.jsp" %>
+	
+	<div class="container">
+		<h2>PAGINA EN MANTENIMIENTO</h2>
+		<a href="registrarViajes.jsp">Registra algun viaje mientras haces ASR</a>
+	</div>
 </body>
 </html>
