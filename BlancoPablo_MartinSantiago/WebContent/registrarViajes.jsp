@@ -17,6 +17,8 @@
 <%@ include file="parts/barraNavegacion.jsp"%>
 	<h3>Registrar viaje</h3>
 	<form action="registrarViaje" method="POST">
+	<div class="container">
+	<div class="col-md-4">
 	<table>
 		<tr>
 			<td><h4>Lugar de salida:</h4></td>
@@ -69,9 +71,6 @@
 				
 			</td>
 		</tr>
-		
-	</table>
-	<table>
 		<tr>
 			<td>Fecha de salida:</td>
 			<td id="fechasalida">
@@ -90,6 +89,8 @@
 		</tr>
 		
 	</table>
+	</div>
+	<div class="col-md-4">
 	<table>
 	<tr>
 			<td><h4>Lugar de llegada:</h4></td>
@@ -142,9 +143,6 @@
 				
 			</td>
 		</tr>
-		
-	</table>
-	<table>
 		<tr>
 			<td>Fecha de llegada:</td>
 			<td id="fechallegada">
@@ -162,6 +160,8 @@
 		</tr>
 		
 	</table>
+	</div>
+	<div class="col-md-4">
 	<table>
 		<tr>
 			<td>Fecha limite de solicitud:</td>
@@ -203,8 +203,9 @@
 		</tr>
 		
 	</table>
+	</div>
 		<input type="submit" value="Registrar">
-	
+	</div>
 	</form>
 </body>
 </html>
