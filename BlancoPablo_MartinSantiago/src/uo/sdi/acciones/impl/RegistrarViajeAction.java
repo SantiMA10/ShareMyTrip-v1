@@ -45,6 +45,7 @@ public class RegistrarViajeAction implements Accion {
 				comentarios = (String) request.getParameter("comentarios"), 
 				plazasmaximo = (String) request.getParameter("plazasmaximo"), 
 				plazasrestantes = (String) request.getParameter("plazasrestantes");
+		
 		System.out.println("Salida: " + horasalida+ " llegada: "+ horallegada);
 
 		HttpSession session=request.getSession();
