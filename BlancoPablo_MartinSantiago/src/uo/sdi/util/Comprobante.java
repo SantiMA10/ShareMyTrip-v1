@@ -14,5 +14,14 @@ public class Comprobante {
 		}
 		return true;
 	}
+	
+	public static int comprobarInt(String arg){
+		int num = -1;
+		try{
+			num = Integer.parseInt(arg);
+		}catch(Exception e){
+		}
+		return num;
+	}
 
 }
