@@ -75,7 +75,7 @@
 		<tr>
 			<td>Fecha de salida:</td>
 			<td id="fechasalida">
-					<input type="text" name="fechasalida" size="15"
+					<input type="date" name="fechasalida" size="15"
 						value=""> 
 				
 			</td>
@@ -83,7 +83,7 @@
 		<tr>
 			<td>Hora de salida:</td>
 			<td id="horasalida">
-					<input type="text" name="horasalida" size="15"
+					<input type="time" name="horasalida" size="15"
 						value=""> 
 				
 			</td>
@@ -148,7 +148,7 @@
 		<tr>
 			<td>Fecha de llegada:</td>
 			<td id="fechallegada">
-					<input type="text" name="fechallegada" size="15"
+					<input type="date" name="fechallegada" size="15"
 						value=""> 
 				
 			</td>
@@ -156,7 +156,7 @@
 		<tr>
 			<td>Hora de llegada:</td>
 			<td id="horallegada">
-					<input type="text" name="horallegada" size="15"
+					<input type="time" name="horallegada" size="15"
 						value=""> 
 			</td>
 		</tr>
@@ -166,7 +166,7 @@
 		<tr>
 			<td>Fecha limite de solicitud:</td>
 			<td id="fechalimite">
-					<input type="text" name="fechalimite" size="15"
+					<input type="date" name="fechalimite" size="15"
 						value=""> 
 				
 			</td>

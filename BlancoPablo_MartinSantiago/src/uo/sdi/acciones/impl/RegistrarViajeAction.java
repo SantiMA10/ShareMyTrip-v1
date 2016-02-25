@@ -45,29 +45,29 @@ public class RegistrarViajeAction implements Accion {
 				comentarios = (String) request.getParameter("comentarios"), 
 				plazasmaximo = (String) request.getParameter("plazasmaximo"), 
 				plazasrestantes = (String) request.getParameter("plazasrestantes");
-		System.out.println("Prueba");
+		System.out.println("Salida: " + horasalida+ " llegada: "+ horallegada);
 
 		HttpSession session=request.getSession();
 		User user = (User) session.getAttribute("user");
 		//Confirmar datos
-		AddressPoint salida = new AddressPoint(callesalida, ciudadsalida, provinciasalida, paissalida, codigopostalsalida, new Waypoint(0.0, 0.0));
+//		AddressPoint salida = new AddressPoint(callesalida, ciudadsalida, provinciasalida, paissalida, codigopostalsalida, new Waypoint(0.0, 0.0));
 		
-		AddressPoint llegada = new AddressPoint(callellegada, ciudadllegada, provinciallegada, paisllegada, codigopostalllegada, new Waypoint(10.0, 10.0));
+//		AddressPoint llegada = new AddressPoint(callellegada, ciudadllegada, provinciallegada, paisllegada, codigopostalllegada, new Waypoint(10.0, 10.0));
 		
 		
-		Trip viaje = new Trip();
-		viaje.setDeparture(salida);
-		viaje.setDestination(llegada);
+//		Trip viaje = new Trip();
+//		viaje.setDeparture(salida);
+//		viaje.setDestination(llegada);
 //		viaje.setDepartureDate((Date) fechasalida); 
 //		viaje.setArrivalDate((Date) fechallegada);
 //		viaje.setClosingDate((Date)fechalimite);
-		viaje.setAvailablePax(Integer.parseInt(plazasrestantes));
-		viaje.setMaxPax(Integer.parseInt(plazasmaximo));
-		viaje.setEstimatedCost(Double.parseDouble(coste));
-		viaje.setComments(comentarios);
-		viaje.setStatus(TripStatus.OPEN);
+//		viaje.setAvailablePax(Integer.parseInt(plazasrestantes));
+//		viaje.setMaxPax(Integer.parseInt(plazasmaximo));
+//		viaje.setEstimatedCost(Double.parseDouble(coste));
+//		viaje.setComments(comentarios);
+//		viaje.setStatus(TripStatus.OPEN);
 		
-		PersistenceFactory.newTripDao().save(viaje);
+//		PersistenceFactory.newTripDao().save(viaje);
 		return resultado;
 	}
 
