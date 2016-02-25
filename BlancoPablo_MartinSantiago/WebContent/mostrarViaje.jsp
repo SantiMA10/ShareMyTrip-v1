@@ -21,16 +21,22 @@
 		<table class="table talbe-condensed">
 			<tr>
 				<td>Fecha de cierre de inscripciones:</td>
-				<td><fmt:formatDate value="${ viaje.closingDate }"  type="both" dateStyle="full" /></td>
+				<td><fmt:formatDate value="${ viaje.closingDate }"  type="date" dateStyle="full" /> 
+				a la/s 
+				<fmt:formatDate value="${ viaje.closingDate }"  type="time" dateStyle="short" /></td>
 				
 			</tr>
 			<tr>
 				<td>Fecha de salida:</td>
-				<td><fmt:formatDate value="${ viaje.departureDate }" type="both" dateStyle="full" /></td>
+				<td><fmt:formatDate value="${ viaje.departureDate }" type="date" dateStyle="full" /> 
+				a la/s 
+				<fmt:formatDate value="${ viaje.departureDate }"  type="time" dateStyle="short" /></td>
 			</tr>
 			<tr>
 				<td>Fecha de llegada:</td>
-				<td><fmt:formatDate value="${ viaje.arrivalDate }"  type="both" dateStyle="full" /></td>
+				<td><fmt:formatDate value="${ viaje.arrivalDate }" type="date" dateStyle="full" /> 
+				a la/s 
+				<fmt:formatDate value="${ viaje.departureDate }"  type="time" dateStyle="shot" /></td>
 			</tr>
 			<tr>
 				<td>Plazas</td>
