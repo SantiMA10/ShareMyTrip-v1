@@ -191,7 +191,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		resJSP=new HashMap<String, String>();			//Modificar contraseña
 		resJSP.put("EXITO","/principal.jsp");
-		resJSP.put("FRACASO","/login.jsp");
+		resJSP.put("FRACASO","/contraseñas.jsp");
 		opcionResJSP.put("modificarContraseña", resJSP);
 		
 		resJSP=new HashMap<String,String>();			//Mostrar viajes privados

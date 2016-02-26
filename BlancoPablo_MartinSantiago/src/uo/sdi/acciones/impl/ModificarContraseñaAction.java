@@ -49,6 +49,12 @@ public class ModificarContraseñaAction implements Accion {
 					resultado = "FRACASO";
 				}
 			}
+			else{
+				Log.error(
+						"Algo ha ocurrido actualizando la contraseña de [%s]",
+						usuario.getLogin());
+				resultado = "FRACASO";
+			}
 		}
 		else{
 			Log.debug("El usuario no esta registrado");
