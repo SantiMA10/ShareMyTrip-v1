@@ -29,11 +29,11 @@ public class ModificarDatosAction implements Accion {
 		User usuario = ((User) session.getAttribute("user"));
 
 		// Comprobar que los datos no son vacios ni null
-		if (Comprobante.comprobarDatos(nuevoNombre))
+		if (!Comprobante.comprobarDatos(nuevoNombre))
 			errores.add("No se puede dejar vacio el campo nombre");
-		if (Comprobante.comprobarDatos(nuevoApellido))
+		if (!Comprobante.comprobarDatos(nuevoApellido))
 			errores.add("No se puede dejar vacio el campo Apellido");
-		if (Comprobante.comprobarDatos(nuevoEmail))
+		if (!Comprobante.comprobarDatos(nuevoEmail))
 			errores.add("No se puede dejar vacio el campo Email");
 
 		if (errores.isEmpty()) {
