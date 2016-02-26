@@ -17,19 +17,67 @@ public class Sesion4Tests {
     
     
     
+   //TEST OBLIGATORIOS
+    /**
+     * Registrarse - La contraseña introducida 2 veces es errones
+     */
     @Test
-    public void testListarViajes() {
-        beginAt("/");  // Navegar a la URL
-//        assertLinkPresent("listarViajes");  // Comprobar que existe el hipervínculo
-//        clickLink("listarViajes"); // Seguir el hipervínculo
+    public void testRegistro() {
+        beginAt("/registro.jsp");  // Navegar a la URL
+        assertTitleEquals("ShareMyTrip - Registro");  // Comprobar título de la página
 
-        assertTitleEquals("ShareMyTrip - Listado de viajes");  // Comprobar título de la página
-
-        // La base de datos contiene 2 viajes tal y como se entrega
-//        assertElementPresent("item_0"); // Comprobar elemento presente en la página
-//        assertElementPresent("item_1"); // Comprobar elemento presente en la página
+        setTextField("nombre", "nombrePrueba");
+        setTextField("apellidos", "apellidosPrueba");
+        setTextField("email", "email@prueba.es");
+        setTextField("password", "pass");
+        setTextField("password2", "noLaMismaPass");
+        submit();
+        assertTitleEquals("ShareMyTrip - Registro");  // Ya que no cambia hasta que se den los datos correctos
     }
+    
+    /**
+     * Iniciar sesion - Sin exito porque la contraseña no es valida
+     */
+    @Test
+    public void testIniciarSesion() {
+    	beginAt("/login.jsp");
+    	assertTitleEquals("ShareMyTrip - Inicie sesión");  // Comprobar título de la página
 
+    	setTextField("nombreUsuario", "user1");
+    	setTextField("contrasena", "contrasenaMala");
+    	submit();
+        assertTitleEquals("ShareMyTrip - Inicie sesión");  // Ya que no cambia hasta que se den los datos correctos
+    }
+    
+    /**
+     * Registrar viaje - Registrar un viaje correctamente
+     */
+    @Test
+    public void registrarViaje(){
+    	beginAt("/registrarViaje.jsp");
+    	assertTitleEquals("ShareMyTrip - Registrar viaje");  // Comprobar título de la página
+
+//    	setTextField("nombreUsuario", "user1");
+//    	setTextField("contrasena", "contrasenaMala");
+//    	submit();
+//        assertTitleEquals("ShareMyTrip - Inicie sesión");  // Ya que no cambia hasta que se den los datos correctos
+    	
+    }
+//    @Test
+//    public void testListarViajes() {
+//        beginAt("/registro.jsp");  // Navegar a la URL
+//        assertTitleEquals("ShareMyTrip - Registro");  // Comprobar título de la páginanculo
+//
+//        setTextField("nombre", "nombrePrueba");
+//        setTextField("apellidos", "apellidosPrueba");
+//        setTextField("email", "email@prueba.es");
+//        setTextField("password", "pass");
+//        setTextField("password2", "noLaMismaPass");
+//        submit();
+//        assertTitleEquals("ShareMyTrip - Registro");  // Ya que no cambia hasta que se den los datos correctos
+//    }
+
+    //DE AQUI PARA ABJO SON LOS TEST ORIGINALES
     @Test
     public void testIniciarSesionConExito() {
 //    	// Rellenando el formulario HTML
@@ -59,6 +107,19 @@ public class Sesion4Tests {
 //        setTextField("nombreUsuario", "yoNoExisto"); // Rellenar primer campo de formulario
 //        submit(); // Enviar formulario
 //        assertTitleEquals("ShareMyTrip - Inicie sesión");  // Comprobar título de la página
+    }
+    
+    @Test
+    public void testListarViajesQueFuncionaBienYNoVoyABorrarDeMomento() {
+        beginAt("/");  // Navegar a la URL
+//        assertLinkPresent("listarViajes");  // Comprobar que existe el hipervínculo
+//        clickLink("listarViajes"); // Seguir el hipervínculo
+
+//        assertTitleEquals("ShareMyTrip - Listado de viajes");  // Comprobar título de la página
+
+        // La base de datos contiene 2 viajes tal y como se entrega
+//        assertElementPresent("item_0"); // Comprobar elemento presente en la página
+//        assertElementPresent("item_1"); // Comprobar elemento presente en la página
     }
 
 }
