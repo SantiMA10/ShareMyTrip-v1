@@ -1,5 +1,7 @@
 package uo.sdi.tests;
 
+import net.sourceforge.jwebunit.junit.JWebUnit;
+
 import org.junit.*;
 
 import static net.sourceforge.jwebunit.junit.JWebUnit.*;
@@ -54,29 +56,47 @@ public class Sesion4Tests {
      */
     @Test
     public void registrarViaje(){
+    	beginAt("/login.jsp");
+    	assertTitleEquals("ShareMyTrip - Inicie sesión");  // Comprobar título de la página
+
+    	setTextField("nombreUsuario", "user1");
+    	setTextField("contrasena", "user1");
+
+    	submit();
     	beginAt("/registrarViaje.jsp");
     	assertTitleEquals("ShareMyTrip - Registrar viaje");  // Comprobar título de la página
 
-//    	setTextField("nombreUsuario", "user1");
-//    	setTextField("contrasena", "contrasenaMala");
-//    	submit();
-//        assertTitleEquals("ShareMyTrip - Inicie sesión");  // Ya que no cambia hasta que se den los datos correctos
+    	setTextField("callesalida", "cardenal cienfuegos");
+    	setTextField("ciudadsalida", "oviedo");
+    	setTextField("provinciasalida", "asturias");
+    	setTextField("paissalida", "españa");
+    	setTextField("codigopostalsalida", "12345");
+    	setTextField("coordenadassalida", "");
+    	setTextField("fechasalida", "2015-02-26");
+    	setTextField("horasalida", "15:00");
+    	setTextField("callellegada", "principal");
+    	setTextField("ciudadllegada", "madrid");
+    	setTextField("provinciallegada", "madrid");
+    	setTextField("paisllegada", "españa");
+    	setTextField("codigopostalllegada", "67890");
+    	setTextField("coordenadasllegada", "");
+    	setTextField("fechallegada", "2015-02-26");
+    	setTextField("horallegada", "21:00");
+    	setTextField("fechalimite", "2015-02-25");
+    	setTextField("coste", "80");
+    	setTextField("comentarios", "Nos vamos de fiesta a madrid, ¿quien viene?");
+    	setTextField("plazasmaximo", "5");
+    	setTextField("plazasrestantes", "4");
+    	submit();
+//    	HAY QUE REVISAR
+//    	HAY QUE REVISAR
+//    	HAY QUE REVISAR
+//    	HAY QUE REVISAR
+        assertTitleEquals("ShareMyTrip - Mis viajes");  // Ya que al actualizar los datos, se va a la pagina principal de "Mis viajes"
     	
     }
-//    @Test
-//    public void testListarViajes() {
-//        beginAt("/registro.jsp");  // Navegar a la URL
-//        assertTitleEquals("ShareMyTrip - Registro");  // Comprobar título de la páginanculo
-//
-//        setTextField("nombre", "nombrePrueba");
-//        setTextField("apellidos", "apellidosPrueba");
-//        setTextField("email", "email@prueba.es");
-//        setTextField("password", "pass");
-//        setTextField("password2", "noLaMismaPass");
-//        submit();
-//        assertTitleEquals("ShareMyTrip - Registro");  // Ya que no cambia hasta que se den los datos correctos
-//    }
-
+    
+    
     //DE AQUI PARA ABJO SON LOS TEST ORIGINALES
     @Test
     public void testIniciarSesionConExito() {
