@@ -102,10 +102,11 @@
 			</table>
 				</c:forEach>
 			</c:if>
-			
-			<form action="pedirPlaza?id=${ viaje.id }" method="post">
-				<input type="submit" value="Pedir plaza">
-			</form>
+			<c:if test="${ user.id != promotor.id }">
+				<form action="pedirPlaza?id=${ viaje.id }" method="post">
+					<input type="submit" value="Pedir plaza">
+				</form>
+			</c:if>
 		</c:if>
 	</div>
 </body>
