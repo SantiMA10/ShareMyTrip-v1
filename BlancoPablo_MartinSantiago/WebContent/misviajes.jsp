@@ -29,6 +29,9 @@
 						<td>${ viaje.viaje.destination.city }</td>
 						<td><fmt:formatDate value="${ viaje.viaje.departureDate }" type="date" dateStyle="full" /> </td>
 						<td>${ viaje.relacion }</td>
+						<td>
+							<c:if test="${ viaje.isCancelable() }"><input type="submit" value="cancelar"></c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

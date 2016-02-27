@@ -1,5 +1,7 @@
 package uo.sdi.util;
 
+import java.util.Date;
+
 import uo.sdi.model.Trip;
 
 public class MisViajesConEstado {
@@ -20,6 +22,9 @@ public class MisViajesConEstado {
 		return relacion;
 	}
 	
+	public boolean isCancelable(){
+		return viaje.getClosingDate().after(new Date());
+	}
 	
 	@Override
 	public String toString() {
