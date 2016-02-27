@@ -13,7 +13,21 @@
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
 	<%@ include file="parts/mostrarErrores.jsp" %>
-	<h2>PAGINA EN MANTENIMIENTO</h2>
-	<a href="registrarViaje.jsp">Registra algun viaje mientras haces ASR</a>
+	<div class="container">
+	${misViajes }
+		<c:if test="${ misViajes.size() > 0 }">		
+			<table class="table table-hover">
+				<c:forEach var="viaje" items="${misViajes}" varStatus="i">
+					<tr id="item_${i.index}">
+						<td${ viaje.viaje }></td>
+						<td${ viaje.relacion }></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</c:if>
+		<c:if test="${ misViajes.size() == 0 }">
+			<div class="alert alert-warning"> No tienes viajes en los que hayas participado.</div>
+		</c:if>
+	</div>
 </body>
 </html>
