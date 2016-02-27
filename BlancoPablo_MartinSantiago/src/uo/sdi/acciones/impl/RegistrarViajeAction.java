@@ -36,30 +36,28 @@ public class RegistrarViajeAction implements Accion {
 		Waypoint salida = null, llegada = null;
 		// Datos desde el formulario
 		// De momento las fechas seran "String a pelo"
-		String callesalida = (String) request.getParameter("callesalida"), ciudadsalida = (String) request
-				.getParameter("ciudadsalida"), provinciasalida = (String) request
-				.getParameter("provinciasalida"), paissalida = (String) request
-				.getParameter("paissalida"), codigopostalsalida = (String) request
-				.getParameter("codigopostalsalida"), coordenadassalida = (String) request
-				.getParameter("coordenadassalida"), fechasalida = (String) request
-				.getParameter("fechasalida"), horasalida = (String) request
-				.getParameter("horasalida"), callellegada = (String) request
-				.getParameter("callellegada"), ciudadllegada = (String) request
-				.getParameter("ciudadllegada"), provinciallegada = (String) request
-				.getParameter("provinciallegada"), paisllegada = (String) request
-				.getParameter("paisllegada"), codigopostalllegada = (String) request
-				.getParameter("codigopostalllegada"), coordenadasllegada = (String) request
-				.getParameter("coordenadasllegada"), fechallegada = (String) request
-				.getParameter("fechallegada"), horallegada = (String) request
-				.getParameter("horallegada"), fechalimite = (String) request
-				.getParameter("fechalimite"), coste = (String) request
-				.getParameter("coste"), comentarios = (String) request
-				.getParameter("comentarios"), plazasmaximo = (String) request
-				.getParameter("plazasmaximo"), plazasrestantes = (String) request
-				.getParameter("plazasrestantes");
+		String callesalida = (String) request.getParameter("callesalida");
+		String ciudadsalida = (String) request.getParameter("ciudadsalida");
+		String provinciasalida = (String) request.getParameter("provinciasalida");
+		String paissalida = (String) request.getParameter("paissalida");
+		String codigopostalsalida = (String) request.getParameter("codigopostalsalida");
+		String coordenadassalida = (String) request.getParameter("coordenadassalida");
+		String fechasalida = (String) request.getParameter("fechasalida");
+		String horasalida = (String) request.getParameter("horasalida");
+		String callellegada = (String) request.getParameter("callellegada");
+		String ciudadllegada = (String) request.getParameter("ciudadllegada");
+		String provinciallegada = (String) request.getParameter("provinciallegada");
+		String paisllegada = (String) request.getParameter("paisllegada");
+		String codigopostalllegada = (String) request.getParameter("codigopostalllegada");
+		String coordenadasllegada = (String) request.getParameter("coordenadasllegada");
+		String fechallegada = (String) request.getParameter("fechallegada");
+		String horallegada = (String) request.getParameter("horallegada");
+		String fechalimite = (String) request.getParameter("fechalimite");
+		String coste = (String) request.getParameter("coste");
+		String comentarios = (String) request.getParameter("comentarios");
+		String plazasmaximo = (String) request.getParameter("plazasmaximo");
+		String plazasrestantes = (String) request.getParameter("plazasrestantes");
 
-		System.out
-				.println("Salida: " + horasalida + " llegada: " + horallegada);
 
 		if (!Comprobante.comprobarDatos(callesalida))
 			errores.add("No se puede dejar vacio el campo calle de salida");
@@ -140,12 +138,12 @@ public class RegistrarViajeAction implements Accion {
 				errores.add("Error en la fecha limite");
 			}
 
-			if (coordenadassalida != null) {
+			if (!coordenadassalida.equals("")) {
 				salida = Comprobante.comprobarPunto(coordenadassalida);
 				if (salida == null)
 					errores.add("Error en las coordenadas de salida");
 			}
-			if (coordenadasllegada != null) {
+			if (!coordenadasllegada.equals("")) {
 				llegada = Comprobante.comprobarPunto(coordenadasllegada);
 				if (llegada == null)
 					errores.add("Error en las coordenadas de llegada");
