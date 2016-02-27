@@ -63,7 +63,7 @@ public class Sesion4Tests {
     	setTextField("contrasena", "user1");
 
     	submit();
-    	beginAt("/registrarViaje.jsp");
+    	gotoPage("/registrarViaje.jsp");
     	assertTitleEquals("ShareMyTrip - Registrar viaje");  // Comprobar título de la página
 
     	setTextField("callesalida", "cardenal cienfuegos");
