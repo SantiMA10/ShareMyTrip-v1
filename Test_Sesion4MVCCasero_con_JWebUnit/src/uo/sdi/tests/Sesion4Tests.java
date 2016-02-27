@@ -112,7 +112,8 @@ public class Sesion4Tests {
 
     	submit();
         assertTitleEquals("ShareMyTrip - Listado de viajes");  
-    	
+        assertTextPresent("Plaza solicitada correctamente.");
+        
     }
     
     
