@@ -169,5 +169,13 @@ public class TripDaoJdbcImpl implements TripDao {
 				new TripMapper(),
 				id, arrivalDate);
 	}
+	
+	@Override
+	public List<Trip> findByPromoterId(Long id) {
+		return jdbcTemplate.queryForList(
+				"TRIP_FIND_BY_PROMOTER", 
+				new TripMapper(),
+				id);
+	}
 
 }

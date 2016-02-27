@@ -12,4 +12,6 @@ public interface TripDao extends GenericDao<Trip, Long> {
 
 	List<Trip> findAllOpenAndPaxAvailables();
 
+	List<Trip> findByPromoterId(Long id);
+
 }
