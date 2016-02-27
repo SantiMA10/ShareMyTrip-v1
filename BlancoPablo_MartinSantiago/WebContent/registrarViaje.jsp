@@ -48,7 +48,7 @@
 							name="codigopostalsalida" size="15" value=""></td>
 					</tr>
 					<tr>
-						<td>Coordenadas (opcional):</td>
+						<td>Coordenadas (ejem: (3,3)):</td>
 						<td id="coordenadassalida"><input type="text"
 							name="coordenadassalida" size="15" value=""></td>
 					</tr>
@@ -96,7 +96,7 @@
 							name="codigopostalllegada" size="15" value=""></td>
 					</tr>
 					<tr>
-						<td>Coordenadas (opcional):</td>
+						<td>Coordenadas (ejem: (3,3)):</td>
 						<td id="coordenadasllegada"><input type="text"
 							name="coordenadasllegada" size="15" value=""></td>
 					</tr>
