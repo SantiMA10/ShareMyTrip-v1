@@ -22,6 +22,8 @@ public class PedirPlazaAccion implements Accion {
 		Log.info("Plaza solicitada %s", plaza.toString());
 		PersistenceFactory.newApplicationDao().save(plaza);
 		
+		request.setAttribute("mensaje", "Plaza solicitada correctamente.");
+		
 		return "EXITO";
 	}
 
