@@ -32,7 +32,7 @@
 						<td>${ viaje.relacion }</td>
 						<td>
 							<c:if test="${ viaje.isCancelable() }">
-							<form action="cancelarPlaza">
+							<form action="cancelarPlaza?id=${ viaje.viaje.id }" method="POST">
 								<input type="submit" value="cancelar">
 							</form>
 							</c:if>
