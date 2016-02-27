@@ -63,7 +63,7 @@ public class Sesion4Tests {
     	setTextField("contrasena", "user1");
 
     	submit();
-    	beginAt("/registrarViaje.jsp");
+    	gotoPage("/registrarViaje.jsp");
     	assertTitleEquals("ShareMyTrip - Registrar viaje");  // Comprobar título de la página
 
     	setTextField("callesalida", "cardenal cienfuegos");
@@ -71,7 +71,7 @@ public class Sesion4Tests {
     	setTextField("provinciasalida", "asturias");
     	setTextField("paissalida", "españa");
     	setTextField("codigopostalsalida", "12345");
-    	setTextField("coordenadassalida", "");
+    	setTextField("coordenadassalida", "55,55");
     	setTextField("fechasalida", "2015-02-26");
     	setTextField("horasalida", "15:00");
     	setTextField("callellegada", "principal");
@@ -79,7 +79,7 @@ public class Sesion4Tests {
     	setTextField("provinciallegada", "madrid");
     	setTextField("paisllegada", "españa");
     	setTextField("codigopostalllegada", "67890");
-    	setTextField("coordenadasllegada", "");
+    	setTextField("coordenadasllegada", "35,55");
     	setTextField("fechallegada", "2015-02-26");
     	setTextField("horallegada", "21:00");
     	setTextField("fechalimite", "2015-02-25");

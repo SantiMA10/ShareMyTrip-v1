@@ -97,6 +97,11 @@ public class RegistrarViajeAction implements Accion {
 			errores.add("No se puede dejar vacio el campo plazas maximo");
 		if (!Comprobante.comprobarDatos(plazasrestantes))
 			errores.add("No se puede dejar vacio el campo plazas restantes");
+		if (!Comprobante.comprobarDatos(coordenadassalida))
+			errores.add("No se puede dejar vacio el coordenadas");
+		if (!Comprobante.comprobarDatos(coordenadasllegada))
+			errores.add("No se puede dejar vacio el coordenadas");
+		
 		// Comprobacion de campos vacios
 		if (errores.isEmpty()) {
 			if (Integer.parseInt(plazasmaximo) < 0)
@@ -176,13 +181,15 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setPromoterId(user.getId());
 
 				PersistenceFactory.newTripDao().save(viaje);
-				Log.debug("Viaje [%s] registrado correctamente", viaje.getId());
+				Log.debug("Viaje [%s] registrado correctamente", viaje);
 			} else {
 				resultado = "FRACASO";
+				request.setAttribute("errores", errores);
 				Log.debug("Error en los datos");
 			}
 		} else {
 			resultado = "FRACASO";
+			request.setAttribute("errores", errores);
 			Log.debug("Error en los datos");
 		}
 
