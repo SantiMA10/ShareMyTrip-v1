@@ -13,7 +13,7 @@ public class CancelarPlazaAccion implements Accion {
 		
 		
 		request.setAttribute("mensaje", "Se ha cancelado tu plaza en el viaje correctamente.");
-		return "Exito";
+		return "EXITO";
 	}
 
 }
