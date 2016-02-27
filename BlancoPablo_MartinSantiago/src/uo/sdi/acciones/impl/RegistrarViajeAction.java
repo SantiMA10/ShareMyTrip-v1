@@ -101,6 +101,7 @@ public class RegistrarViajeAction implements Accion {
 			errores.add("No se puede dejar vacio el coordenadas");
 		if (!Comprobante.comprobarDatos(coordenadasllegada))
 			errores.add("No se puede dejar vacio el coordenadas");
+		
 		// Comprobacion de campos vacios
 		if (errores.isEmpty()) {
 			if (Integer.parseInt(plazasmaximo) < 0)
@@ -183,10 +184,12 @@ public class RegistrarViajeAction implements Accion {
 				Log.debug("Viaje [%s] registrado correctamente", viaje.getId());
 			} else {
 				resultado = "FRACASO";
+				request.setAttribute("errores", errores);
 				Log.debug("Error en los datos");
 			}
 		} else {
 			resultado = "FRACASO";
+			request.setAttribute("errores", errores);
 			Log.debug("Error en los datos");
 		}
 
