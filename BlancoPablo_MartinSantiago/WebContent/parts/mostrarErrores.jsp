@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:if test="${errores != null}">
+<c:if test="${errores != null && errores.size() > 0}">
 	<div class="alert alert-danger">
 
 		<c:forEach var="error" items="${errores}" varStatus="i">

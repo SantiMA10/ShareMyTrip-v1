@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -13,7 +14,32 @@
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
 	<%@ include file="parts/mostrarErrores.jsp" %>
-	<h2>PAGINA EN MANTENIMIENTO</h2>
-	<a href="registrarViaje.jsp">Registra algun viaje mientras haces ASR</a>
+	<div class="container">
+		<c:if test="${ misViajes.size() > 0 }">				
+			<table class="table table-hover">
+				<tr>
+					<th>Origen</th>
+					<th>Destino</th>
+					<th>Fecha de salida</th>
+					<th>Relacion con el viaje</th>
+				</tr>
+				<c:forEach var="viaje" items="${misViajes}" varStatus="i">
+					<tr id="item_${i.index}">
+						<td>${ viaje.viaje.departure.city }</td>
+						<td>${ viaje.viaje.destination.city }</td>
+						<td><fmt:formatDate value="${ viaje.viaje.departureDate }" type="date" dateStyle="full" /> </td>
+						<td>${ viaje.relacion }</td>
+						<td>
+							<c:if test="${ viaje.isCancelable() }"><input type="submit" value="cancelar"></c:if>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</c:if>
+		<c:if test="${ misViajes.size() == 0 }">
+			<div class="alert alert-warning"> No tienes viajes en los que hayas participado.</div>
+		</c:if>
+		<a href="./registrarViaje.jsp"> Registrar viaje </a>
+	</div>
 </body>
 </html>
