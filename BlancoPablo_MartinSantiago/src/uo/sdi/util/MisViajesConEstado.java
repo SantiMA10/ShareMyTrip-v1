@@ -19,5 +19,11 @@ public class MisViajesConEstado {
 	public String getRelacion() {
 		return relacion;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Viaje: " + viaje.toString() + ", relacion: " + relacion;
+	}
 
 }
