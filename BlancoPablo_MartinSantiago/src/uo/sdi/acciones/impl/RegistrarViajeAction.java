@@ -181,7 +181,7 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setPromoterId(user.getId());
 
 				PersistenceFactory.newTripDao().save(viaje);
-				Log.debug("Viaje [%s] registrado correctamente", viaje.getId());
+				Log.debug("Viaje [%s] registrado correctamente", viaje);
 			} else {
 				resultado = "FRACASO";
 				request.setAttribute("errores", errores);
