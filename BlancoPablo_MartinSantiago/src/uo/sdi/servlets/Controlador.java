@@ -197,7 +197,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		resJSP=new HashMap<String, String>();			//Modificar datos
 		resJSP.put("EXITO","/principal.jsp");
-		resJSP.put("FRACASO","/datosPersonales.jsp");
+		resJSP.put("FRACASO","/principal.jsp");
 		opcionResJSP.put("modificarDatos", resJSP);
 		
 		resJSP=new HashMap<String, String>();			//Cerrar sesion
@@ -219,7 +219,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		resJSP=new HashMap<String, String>();			//Modificar contraseña
 		resJSP.put("EXITO","/principal.jsp");
-		resJSP.put("FRACASO","/contraseñas.jsp");
+		resJSP.put("FRACASO","/principal.jsp");
 		opcionResJSP.put("modificarContraseña", resJSP);
 		
 		resJSP=new HashMap<String,String>();			//Mostrar viajes privados

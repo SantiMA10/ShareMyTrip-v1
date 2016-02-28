@@ -60,6 +60,8 @@ public class ModificarContraseñaAction implements Accion {
 			Log.debug("El usuario no esta registrado");
 			resultado = "FRACASO";
 		}
+		
+		request.setAttribute("errores", errores);
 
 		return resultado;
 	}

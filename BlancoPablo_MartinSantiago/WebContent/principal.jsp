@@ -44,31 +44,25 @@
 				<h3>Modificar datos</h3>
 
 				<hr>
-				<form class="form-horizontal" action="#" method="POST">
-					<div class="form-group">
-						<label class="col-sm-4 control-label">Nombre de usuario: </label>
-						<input class="col-sm-8" type="text" name="nombreUsuario"
-							placeholder="Nombre de usuario">
-					</div>
+				<form class="form-horizontal" action="modificarDatos" method="POST">
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Nombre: </label> <input
-							class="col-sm-8" type="text" name="nombre" placeholder="Nombre">
+							class="col-sm-8" type="text" name="name" placeholder="Nombre"
+							value="<jsp:getProperty property="name" name="user"/>">
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Apellidos: </label> <input
-							class="col-sm-8" type="text" name="apellidos"
-							placeholder="Apellidos">
+							class="col-sm-8" type="text" name="surname"
+							placeholder="Apellidos" value="<jsp:getProperty property="surname" name="user"/>">
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Correo electronico:
 						</label> <input class="col-sm-8" type="text" name="email"
-							placeholder="Correo electronico">
+							placeholder="Correo electronico" value="<jsp:getProperty property="email" name="user"/>">
 					</div>
 
 					<div class="form-center">
-						<input class="btn btn-primary" type="submit" value="Registrarse">
-						<input class="btn btn-danger" type="reset"
-							value="Borrar formulario">
+						<input class="btn btn-primary" type="submit" value="Cambiar datos">
 					</div>
 
 				</form>
@@ -77,22 +71,20 @@
 				<h3>Modificar contraseña</h3>
 
 				<hr>
-				<form class="form-horizontal" action="#" method="POST">
+				<form class="form-horizontal" action="modificarContraseña" method="POST">
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Contraseña: </label> <input
-							class="col-sm-8" type="password" name="password"
+							class="col-sm-8" type="password" name="contraseña"
 							placeholder="Contraseña">
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Repita su
 							contraseña: </label> <input class="col-sm-8" type="password"
-							name="password2" placeholder="Repita su contraseña">
+							name="contraseñaNueva" placeholder="Repita su contraseña">
 					</div>
 
 					<div class="form-center">
-						<input class="btn btn-primary" type="submit" value="Registrarse">
-						<input class="btn btn-danger" type="reset"
-							value="Borrar formulario">
+						<input class="btn btn-primary" type="submit" value="Cambiar contraseña">
 					</div>
 
 				</form>
