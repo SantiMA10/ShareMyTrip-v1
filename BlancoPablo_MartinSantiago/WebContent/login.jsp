@@ -33,7 +33,7 @@
 								placeholder="Contraseña">
 						</div>
 						
-						<input class="btn btn-primary" type="submit" value="Registrarse">
+						<input class="btn btn-primary" type="submit" value="Iniciar sesion">
 						<input class="btn btn-danger" type="reset" value="Borrar formulario">
 					</form>
 			</div>
