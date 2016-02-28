@@ -28,7 +28,14 @@
 				</tr>
 				<c:forEach var="viaje" items="${misViajes}" varStatus="i">
 					<tr id="item_${i.index}">
-						<td>${ viaje.viaje.departure.city }</td>
+						<!-- Si es promotor, que vaya a la ventana del promotor -->
+						<c:if test= "${viaje.viaje.promoterId == user.id }">
+							<td><a href="mostrarViajePromotor?id=${viaje.viaje.id}">${ viaje.viaje.departure.city }</a></td>
+						</c:if>
+						<!--  Si no lo es, a la informacion -->
+						<c:if test= "${viaje.viaje.promoterId != user.id }">
+							<td><a href="mostrarViaje?id=${viaje.viaje.id}">${ viaje.viaje.departure.city }</a></td>
+						</c:if>
 						<td>${ viaje.viaje.destination.city }</td>
 						<td><fmt:formatDate value="${ viaje.viaje.departureDate }" type="date" dateStyle="full" /> </td>
 						<td>${ viaje.relacion }</td>
