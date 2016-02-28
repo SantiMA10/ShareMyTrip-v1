@@ -6,6 +6,7 @@
 		</div>
 		<c:if test="${user == null}">
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="listarViajes">Viajes disponibles</a></li>
 				<li><a href="login.jsp">Iniciar sesión</a></li>
 				<li><a href="registro.jsp">Registrarse</a></li>
 			</ul>
