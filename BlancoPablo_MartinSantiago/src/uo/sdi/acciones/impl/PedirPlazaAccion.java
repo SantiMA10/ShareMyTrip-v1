@@ -19,7 +19,7 @@ public class PedirPlazaAccion implements Accion {
 		plaza.setTripId(Long.valueOf(request.getParameter("id")));
 		plaza.setUserId(((User)request.getSession().getAttribute("user")).getId());
 		
-		Log.info("Plaza solicitada %s", plaza.toString());
+		Log.info("Plaza solicitada [%s]", plaza.toString());
 		PersistenceFactory.newApplicationDao().save(plaza);
 		
 		request.setAttribute("mensaje", "Plaza solicitada correctamente.");

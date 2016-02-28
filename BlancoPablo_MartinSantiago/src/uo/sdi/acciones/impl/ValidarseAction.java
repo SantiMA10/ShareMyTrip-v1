@@ -36,7 +36,7 @@ public class ValidarseAction implements Accion {
 			else {
 				session.invalidate();
 				errores.add("Usuario o contraseña incorrecta, intentelo de nuevo");
-				Log.info("El usuario [%s] no está registrado",nombreUsuario);
+				Log.error("El usuario [%s] no está registrado",nombreUsuario);
 				resultado="FRACASO";
 			}
 		}
