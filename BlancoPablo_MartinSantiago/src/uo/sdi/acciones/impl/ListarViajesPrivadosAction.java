@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import uo.sdi.acciones.Accion;
 import uo.sdi.model.Application;
 import uo.sdi.model.Seat;
+import uo.sdi.model.SeatStatus;
 import uo.sdi.model.Trip;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
@@ -56,7 +57,12 @@ public class ListarViajesPrivadosAction implements Accion{
 			Trip viaje = td.findById(peticion.getTripId());
 			
 			if(plaza != null){
-				misViajes.add(new MisViajesConEstado(viaje, "Admitido"));
+				if(plaza.getStatus().equals(SeatStatus.ACCEPTED)){
+					misViajes.add(new MisViajesConEstado(viaje, "Admitido"));
+				}
+				else{
+					misViajes.add(new MisViajesConEstado(viaje, "Excluido"));
+				}
 			}
 			else if(plaza == null && viaje.getAvailablePax() > 0){
 				misViajes.add(new MisViajesConEstado(viaje, "Pendiente"));
