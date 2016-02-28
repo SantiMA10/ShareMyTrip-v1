@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import uo.sdi.acciones.Accion;
 import uo.sdi.acciones.impl.CancelarPlazaAccion;
 import uo.sdi.acciones.impl.CerrarSesionAction;
+import uo.sdi.acciones.impl.ConfirmarPlazaAction;
 import uo.sdi.acciones.impl.ListarViajesAction;
 import uo.sdi.acciones.impl.ListarViajesPrivadosAction;
 import uo.sdi.acciones.impl.ModificarContraseñaAction;
@@ -168,6 +169,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaRegistrado.put("registrarViaje", new RegistrarViajeAction());
 		mapaRegistrado.put("cancelarPlaza", new CancelarPlazaAccion());
 		mapaRegistrado.put("mostrarViajePromotor",new MostrarViajePromotorAction());
+		mapaRegistrado.put("confirmarPlaza", new ConfirmarPlazaAction());
 		mapaDeAcciones.put("REGISTRADO", mapaRegistrado);
 	}
 	
@@ -250,6 +252,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP = new HashMap<String, String>(); 		//Mostrar viaje siendo promotor
 		resJSP.put("EXITO","/mostrarViajePromotor.jsp");
 		opcionResJSP.put("mostrarViajePromotor", resJSP);
+		
+		resJSP = new HashMap<String, String>(); 		//Confirmar plaza
+		resJSP.put("EXITO","/mostrarViajePromotor");
+		opcionResJSP.put("confirmarPlaza", resJSP);
 		
 		mapaDeNavegacion.put("REGISTRADO",opcionResJSP);
 	}

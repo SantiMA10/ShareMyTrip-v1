@@ -104,10 +104,10 @@
 				</c:forEach>
 				<tr>
 					<td>
-						<form action="" method="post">
+						<form action="confirmarPlaza?idViaje=${ viaje.id }&idUsuario=${ solicitante.id }&action=aceptar" method="post">
 							<input class="btn btn-primary" type="submit" value="Confirmar plaza">
 						</form>
-						<form action="" method="post">
+						<form action="confirmarPlaza?idViaje=${ viaje.id }&idUsuario=${ solicitante.id }&action=denegar" method="post">
 							<input class="btn btn-primary" type="submit" value="Denegar plaza">
 						</form>
 						

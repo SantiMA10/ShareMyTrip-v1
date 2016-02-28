@@ -14,22 +14,49 @@ import uo.sdi.model.SeatStatus;
 import uo.sdi.model.Trip;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
+import uo.sdi.persistence.impl.SeatDaoJdbcImpl;
 import uo.sdi.util.RatingsContainer;
 
-public class MostrarViajePromotorAction implements Accion{
+public class ConfirmarPlazaAction implements Accion {
 
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		String resultado = "EXITO";
 		Trip viaje;
+		
+		String idViaje = (String) request.getParameter("idViaje");
+		String idUsuario = (String) request.getParameter("idUsuario");
+		String action = (String) request.getParameter("action");
+		
+		try{
+			Seat asiento = new Seat();
+			asiento.setTripId(Long.parseLong(idViaje));
+			asiento.setUserId(Long.parseLong(idUsuario));
+			if(action.equals("aceptar")){
+				
+				asiento.setStatus(SeatStatus.ACCEPTED);
+				viaje=PersistenceFactory.newTripDao().findById(Long.valueOf(request.getParameter("idViaje")));
+				viaje.setAvailablePax(viaje.getAvailablePax()-1);
+				PersistenceFactory.newTripDao().update(viaje);
+			}
+			else{
+				asiento.setStatus(SeatStatus.EXCLUDED);
+			}
+
+			PersistenceFactory.newSeatDao().save(asiento);
+		}catch(Exception e){
+			resultado = "FRACASO";
+		}
+		
+		//Volver a cargar la pagina
 		List<User> participantes = new ArrayList<>();
 		List<User> solicitantes = new ArrayList<>();
 		RatingsContainer puntuaciones = new RatingsContainer();
 		
 		try {
 			
-			viaje=PersistenceFactory.newTripDao().findById(Long.valueOf(request.getParameter("id")));
+			viaje=PersistenceFactory.newTripDao().findById(Long.valueOf(request.getParameter("idViaje")));
 			List<Application> peticiones = PersistenceFactory.newApplicationDao().findByTripId(viaje.getId());
 						
 			System.out.println(puntuaciones);
@@ -59,8 +86,7 @@ public class MostrarViajePromotorAction implements Accion{
 		catch (Exception e) {
 			Log.error("Algo ha ocurrido obteniendo lista de viajes");
 		}
-		return "EXITO";
+		return resultado;
 	}
 
-	
 }
