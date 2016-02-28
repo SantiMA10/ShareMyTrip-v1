@@ -1,7 +1,9 @@
 package uo.sdi.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -39,7 +41,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 				throws IOException, ServletException {
 		
-		String opcion, resultado, jspSiguiente;
+		String opcion = null, resultado, jspSiguiente = null;
 		Accion accion;
 		String rolAntes, rolDespues;
 		
@@ -62,14 +64,26 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			//req.getSession().invalidate();
 			
-			Log.error("Se ha producido alguna excepción no manejada [%s]",e);
-			
-			accion = new ListarViajesAction();
-			resultado=accion.execute(req, res);
-			rolDespues=obtenerRolDeSesion(req);
-			jspSiguiente=buscarJSPSegun(rolDespues, "listarViajes", resultado);
+			if(opcion.equals("sesionInvalida")){
+				
+				Log.error("Se ha intentado acceder a una zona para usuarios registrados");
+				List<String> errores = new ArrayList<String>();
+				errores.add("Para acceder a esa zona debes antes iniciar sesión o registrarte.");
+				req.setAttribute("errores", errores);
+				
+				jspSiguiente = "/login.jsp";				
+			}
+			else{
+				Log.error("Se ha producido alguna excepción no manejada [%s]",e);
+				
+				accion = new ListarViajesAction();
+				resultado=accion.execute(req, res);
+				rolDespues=obtenerRolDeSesion(req);
+				jspSiguiente=buscarJSPSegun(rolDespues, "listarViajes", resultado);
 
-			jspSiguiente="/listaViajes.jsp";
+				jspSiguiente="/listaViajes.jsp";
+			}
+			
 			req.setAttribute("jspSiguiente", jspSiguiente);
 			
 		}
