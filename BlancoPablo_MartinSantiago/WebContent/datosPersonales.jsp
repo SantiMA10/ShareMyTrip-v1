@@ -50,6 +50,6 @@
 	</form>
 	
 	<br/>
-	<a href="contraseñas.jsp">Modificar contraseña</a></li>
+	<a href="contraseñas.jsp">Modificar contraseña</a>
 </body>
 </html>
