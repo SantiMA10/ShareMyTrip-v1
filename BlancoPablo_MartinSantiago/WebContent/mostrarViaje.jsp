@@ -108,6 +108,9 @@
 				</form>
 			</c:if>
 		</c:if>
+		<c:if test="${ user == null }">
+			<p>Puedes ver más información sobre el viaje si <a href="login.jsp">incias sesion</a> o <a href="registro.jsp">te registras</a></p>
+		</c:if>
 	</div>
 </body>
 </html>
