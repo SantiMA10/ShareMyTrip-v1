@@ -15,29 +15,31 @@
 	<div class="container">
 		<%@ include file="parts/mostrarErrores.jsp"%>
 
-		<form action="validarse" method="post">
+		<div class="row form-center">
+			<div class="col-md-6 col-md-offset-3 ">
 
-			<center>
-				<h1>Inicie sesión</h1>
-			</center>
-			<hr>
-			<br>
-			<table align="center">
-				<tr>
-					<td align="right">Usuario</td>
-					<td><input type="text" name="nombreUsuario" align="left"
-						size="15"></td>
-				</tr>
-				<tr>
-					<td align="right">Contraseña</td>
-					<td><input type="password" name="contrasena" align="left"
-						size="15"></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="Enviar" /></td>
-				</tr>
-			</table>
-		</form>
+					<form class="form-horizontal" action="validarse" method="post">
+
+						<h1>Inicie sesión</h1>
+						<hr>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Nombre de usuario:
+							</label> <input class="col-sm-8" type="text" name="nombreUsuario"
+								placeholder="Nombre de usuario">
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Contraseña: </label> <input
+								class="col-sm-8" type="text" name="contrasena"
+								placeholder="Contraseña">
+						</div>
+						
+						<input class="btn btn-primary" type="submit" value="Registrarse">
+						<input class="btn btn-danger" type="reset" value="Borrar formulario">
+					</form>
+			</div>
+		</div>
+
+
 	</div>
 </body>
 </html>

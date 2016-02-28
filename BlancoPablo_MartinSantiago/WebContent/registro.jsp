@@ -12,9 +12,10 @@
 </head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
-	<%@ include file="parts/mostrarErrores.jsp"%>
 
 	<div class="container">
+		<%@ include file="parts/mostrarErrores.jsp"%>
+	
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 ">
 				<center>
