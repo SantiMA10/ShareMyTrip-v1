@@ -92,13 +92,8 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			}
 			else{
 				Log.error("Se ha producido alguna excepción no manejada [%s]",e);
-				
-				accion = new ListarViajesAction();
-				resultado=accion.execute(req, res);
-				rolDespues=obtenerRolDeSesion(req);
-				jspSiguiente=buscarJSPSegun(rolDespues, "listarViajes", resultado);
 
-				jspSiguiente="/listaViajes.jsp";
+				jspSiguiente="/404.jsp";
 			}
 			
 			req.setAttribute("jspSiguiente", jspSiguiente);
