@@ -104,7 +104,7 @@
 			</c:if>
 			<c:if test="${ user.id != promotor.id }">
 				<form action="pedirPlaza?id=${ viaje.id }" method="post">
-					<input type="submit" value="Pedir plaza">
+					<input class="btn btn-primary" type="submit" value="Pedir plaza">
 				</form>
 			</c:if>
 		</c:if>
