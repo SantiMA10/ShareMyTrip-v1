@@ -15,6 +15,7 @@
 	<%@ include file="parts/barraNavegacion.jsp"%>
 	<%@ include file="parts/mostrarErrores.jsp" %>
 	<div class="container">
+			<%@ include file="parts/mostrarExito.jsp"%>
 		<c:if test="${ misViajes.size() > 0 }">				
 			<table class="table table-hover">
 				<tr>
@@ -30,7 +31,11 @@
 						<td><fmt:formatDate value="${ viaje.viaje.departureDate }" type="date" dateStyle="full" /> </td>
 						<td>${ viaje.relacion }</td>
 						<td>
-							<c:if test="${ viaje.isCancelable() }"><input type="submit" value="cancelar"></c:if>
+							<c:if test="${ viaje.isCancelable() }">
+							<form action="cancelarPlaza?id=${ viaje.viaje.id }" method="POST">
+								<input type="submit" value="cancelar">
+							</form>
+							</c:if>
 						</td>
 					</tr>
 				</c:forEach>

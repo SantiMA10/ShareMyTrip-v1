@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uo.sdi.acciones.Accion;
+import uo.sdi.acciones.impl.CancelarPlazaAccion;
 import uo.sdi.acciones.impl.CerrarSesionAction;
 import uo.sdi.acciones.impl.ListarViajesAction;
 import uo.sdi.acciones.impl.ListarViajesPrivadosAction;
@@ -128,6 +129,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaRegistrado.put("pedirPlaza", new PedirPlazaAccion());
 		mapaRegistrado.put("listarViajesPrivados", new ListarViajesPrivadosAction());
 		mapaRegistrado.put("registrarViaje", new RegistrarViajeAction());
+		mapaRegistrado.put("cancelarPlaza", new CancelarPlazaAccion());
 		mapaDeAcciones.put("REGISTRADO", mapaRegistrado);
 	}
 	
@@ -199,11 +201,11 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		opcionResJSP.put("listarViajesPrivados", resJSP);
 		
 		resJSP=new HashMap<String,String>();			//Mostrar viajes privados
-		resJSP.put("EXITO","/misviajes.jsp");
-		opcionResJSP.put("listarViajesPrivados", resJSP);
+		resJSP.put("EXITO","/listarViajesPrivados");
+		opcionResJSP.put("cancelarPlaza", resJSP);
 		
 		resJSP=new HashMap<String, String>();			//Registrar un viaje
-		resJSP.put("EXITO","/misviajes.jsp");
+		resJSP.put("EXITO","/listarViajesPrivados");
 		resJSP.put("FRACASO","/registrarViaje.jsp");
 		opcionResJSP.put("registrarViaje", resJSP);
 		

@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>ShareMyTrip - Listado de viajes</title>
+<title>ShareMyTrip - Detalles viaje</title>
 
 <link rel="stylesheet" href="./style.css">
 
@@ -102,10 +102,11 @@
 			</table>
 				</c:forEach>
 			</c:if>
-			
-			<form action="pedirPlaza?id=${ viaje.id }" method="post">
-				<input type="submit" value="Pedir plaza">
-			</form>
+			<c:if test="${ user.id != promotor.id }">
+				<form action="pedirPlaza?id=${ viaje.id }" method="post">
+					<input type="submit" value="Pedir plaza">
+				</form>
+			</c:if>
 		</c:if>
 	</div>
 </body>

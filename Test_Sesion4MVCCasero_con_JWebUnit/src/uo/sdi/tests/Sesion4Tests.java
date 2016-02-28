@@ -34,6 +34,7 @@ public class Sesion4Tests {
         setTextField("password", "pass");
         setTextField("password2", "noLaMismaPass");
         submit();
+        
         assertTitleEquals("ShareMyTrip - Registro");  // Ya que no cambia hasta que se den los datos correctos
     }
     
@@ -48,6 +49,7 @@ public class Sesion4Tests {
     	setTextField("nombreUsuario", "user1");
     	setTextField("contrasena", "contrasenaMala");
     	submit();
+    	
         assertTitleEquals("ShareMyTrip - Inicie sesión");  // Ya que no cambia hasta que se den los datos correctos
     }
     
@@ -63,7 +65,7 @@ public class Sesion4Tests {
     	setTextField("contrasena", "user1");
 
     	submit();
-    	beginAt("/registrarViaje.jsp");
+    	gotoPage("/registrarViaje.jsp");
     	assertTitleEquals("ShareMyTrip - Registrar viaje");  // Comprobar título de la página
 
     	setTextField("callesalida", "cardenal cienfuegos");
@@ -71,7 +73,7 @@ public class Sesion4Tests {
     	setTextField("provinciasalida", "asturias");
     	setTextField("paissalida", "españa");
     	setTextField("codigopostalsalida", "12345");
-    	setTextField("coordenadassalida", "");
+    	setTextField("coordenadassalida", "55,55");
     	setTextField("fechasalida", "2015-02-26");
     	setTextField("horasalida", "15:00");
     	setTextField("callellegada", "principal");
@@ -79,7 +81,7 @@ public class Sesion4Tests {
     	setTextField("provinciallegada", "madrid");
     	setTextField("paisllegada", "españa");
     	setTextField("codigopostalllegada", "67890");
-    	setTextField("coordenadasllegada", "");
+    	setTextField("coordenadasllegada", "35,55");
     	setTextField("fechallegada", "2015-02-26");
     	setTextField("horallegada", "21:00");
     	setTextField("fechalimite", "2015-02-25");
@@ -88,12 +90,30 @@ public class Sesion4Tests {
     	setTextField("plazasmaximo", "5");
     	setTextField("plazasrestantes", "4");
     	submit();
-//    	HAY QUE REVISAR
-//    	HAY QUE REVISAR
-//    	HAY QUE REVISAR
-//    	HAY QUE REVISAR
-        assertTitleEquals("ShareMyTrip - Mis viajes");  // Ya que al actualizar los datos, se va a la pagina principal de "Mis viajes"
+        assertTitleEquals("ShareMyTrip - Mis viajes");  
     	
+    }
+    
+    /**
+     * Solicitar plaza en viaje en el que el usuario no es promotor
+     */
+    @Test
+    public void solicitarPlaza(){
+    	beginAt("/login.jsp");
+    	assertTitleEquals("ShareMyTrip - Inicie sesión");  // Comprobar título de la página
+
+    	setTextField("nombreUsuario", "user1");
+    	setTextField("contrasena", "user1");
+    	submit();
+    	
+    	gotoPage("/mostrarViaje?id=30");
+    	assertTitleEquals("ShareMyTrip - Detalles viaje");  // Comprobar título de la página
+    	assertTextPresent("Barcelona-Valencia");
+
+    	submit();
+        assertTitleEquals("ShareMyTrip - Listado de viajes");  
+        assertTextPresent("Plaza solicitada correctamente.");
+        
     }
     
     

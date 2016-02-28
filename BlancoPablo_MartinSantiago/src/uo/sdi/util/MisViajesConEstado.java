@@ -23,7 +23,7 @@ public class MisViajesConEstado {
 	}
 	
 	public boolean isCancelable(){
-		return viaje.getClosingDate().after(new Date());
+		return viaje.getClosingDate().after(new Date()) && !relacion.equals("Promotor");
 	}
 	
 	@Override
