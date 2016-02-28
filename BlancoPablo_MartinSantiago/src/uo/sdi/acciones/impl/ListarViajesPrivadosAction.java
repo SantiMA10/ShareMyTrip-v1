@@ -31,7 +31,7 @@ public class ListarViajesPrivadosAction implements Accion{
 		cargarViajesPromotor(misViajes, usuario);
 		cargarViajes(misViajes, usuario);
 		
-		Log.info("Viajes relacionados con el usuario [%s] cargados", misViajes.size());
+		Log.info("Viajes relacionados [%s] con el usuario [%s] cargados", misViajes.size(), usuario.getLogin());
 		request.setAttribute("misViajes", misViajes);
 		
 		return resultado;
