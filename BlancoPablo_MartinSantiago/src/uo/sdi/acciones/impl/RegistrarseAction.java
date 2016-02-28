@@ -63,7 +63,7 @@ public class RegistrarseAction implements Accion {
 		else{
 			errores.add("Ya existe un usuario con ese nombre de usuario.");
 		}
-		request.getSession().setAttribute("errores", errores);
+		request.setAttribute("errores", errores);
 		
 		if(errores.size() == 0){
 			//Guardamos el usuario en la base de datos

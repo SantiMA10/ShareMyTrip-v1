@@ -29,11 +29,11 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Contraseña: </label> <input
-								class="col-sm-8" type="text" name="contrasena"
+								class="col-sm-8" type="password" name="contrasena"
 								placeholder="Contraseña">
 						</div>
 						
-						<input class="btn btn-primary" type="submit" value="Registrarse">
+						<input class="btn btn-primary" type="submit" value="Iniciar sesion">
 						<input class="btn btn-danger" type="reset" value="Borrar formulario">
 					</form>
 			</div>

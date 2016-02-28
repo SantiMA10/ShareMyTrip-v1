@@ -1,5 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ include file="parts/comprobarSesion.jsp" %>
+<%@ include file="parts/comprobarSesion.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -13,142 +13,117 @@
 </head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
-	<%@ include file="parts/mostrarErrores.jsp" %>
-	
-	<h3>Registrar viaje</h3>
-	<form action="registrarViaje" method="POST">
+	<%@ include file="parts/mostrarErrores.jsp"%>
+
+	<form class="form-horizontal" action="registrarViaje" method="POST">
 		<div class="container">
-			<div class="col-md-4">
-				<table>
-					<tr>
-						<td><h4>Lugar de salida:</h4></td>
-					</tr>
-					<tr>
-						<td>Calle:</td>
-						<td id="callesalida"><input type="text" name="callesalida"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Ciudad:</td>
-						<td id="ciudadsalida"><input type="text" name="ciudadsalida"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Provincia:</td>
-						<td id="provinciasalida"><input type="text"
-							name="provinciasalida" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Pais:</td>
-						<td id="paissalida"><input type="text" name="paissalida"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Codigo postal:</td>
-						<td id="codigopostalsalida"><input type="text"
-							name="codigopostalsalida" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Coordenadas (ejem: (3,3)):</td>
-						<td id="coordenadassalida"><input type="text"
-							name="coordenadassalida" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Fecha de salida:</td>
-						<td id="fechasalida"><input type="date" name="fechasalida"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Hora de salida:</td>
-						<td id="horasalida"><input type="time" name="horasalida"
-							size="15"></td>
-					</tr>
+			<h3>Registrar viaje</h3>
 
-				</table>
+			<div class="col-md-4">
+
+				<h4>Lugar de salida:</h4>
+				<hr>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Calle: </label> <input
+						class="col-sm-7" type="text" name="callesalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Ciudad: </label> <input
+						class="col-sm-7" type="text" name="ciudadsalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Provincia: </label> <input
+						class="col-sm-7" type="text" name="provinciasalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Pais: </label> <input
+						class="col-sm-7" type="text" name="paissalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Codigo postal: </label> <input
+						class="col-sm-7" type="text" name="codigopostalsalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Coordenadas (ejem: 3,3): </label> <input
+						class="col-sm-7" type="text" name="coordenadassalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Fecha de salida: </label> <input
+						class="col-sm-7" type="date" name="fechasalida">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Hora de salida: </label> <input
+						class="col-sm-7" type="time" name="horasalida">
+				</div>
 			</div>
 			<div class="col-md-4">
-				<table>
-					<tr>
-						<td><h4>Lugar de llegada:</h4></td>
-					</tr>
-					<tr>
-						<td>Calle:</td>
-						<td id="callellegada"><input type="text" name="callellegada"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Ciudad:</td>
-						<td id="ciudadllegada"><input type="text"
-							name="ciudadllegada" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Provincia:</td>
-						<td id="provinciallegada"><input type="text"
-							name="provinciallegada" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Pais:</td>
-						<td id="paisllegada"><input type="text" name="paisllegada"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Codigo postal:</td>
-						<td id="codigopostalllegada"><input type="text"
-							name="codigopostalllegada" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Coordenadas (ejem: (3,3)):</td>
-						<td id="coordenadasllegada"><input type="text"
-							name="coordenadasllegada" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Fecha de llegada:</td>
-						<td id="fechallegada"><input type="date" name="fechallegada"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Hora de llegada:</td>
-						<td id="horallegada"><input type="time" name="horallegada"
-							size="15" value=""></td>
-					</tr>
-
-				</table>
+			
+				<h4>Lugar de llegada:</h4>
+				<hr>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Calle: </label> <input
+						class="col-sm-7" type="text" name="callellegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Ciudad: </label> <input
+						class="col-sm-7" type="text" name="ciudadllegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Provincia: </label> <input
+						class="col-sm-7" type="text" name="provinciallegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Pais: </label> <input
+						class="col-sm-7" type="text" name="paisllegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Codigo postal: </label> <input
+						class="col-sm-7" type="text" name="codigopostalllegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Coordenadas (ejem: 3,3): </label> <input
+						class="col-sm-7" type="text" name="coordenadasllegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Fecha de salida: </label> <input
+						class="col-sm-7" type="date" name="fechallegada">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Hora de salida: </label> <input
+						class="col-sm-7" type="time" name="horallegada">
+				</div>
+			
 			</div>
 			<div class="col-md-4">
-				<table>
-
-					<tr>
-						<td><h4>Datos adicionales:</h4></td>
-					</tr>
-					<tr>
-						<td>Fecha limite de solicitud:</td>
-						<td id="fechalimite"><input type="date" name="fechalimite"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Coste estimado (Se reprtira entre los participantes):</td>
-						<td id="coste"><input type="text" name="coste" size="15"
-							value=""></td>
-					</tr>
-					<tr>
-						<td>Comentarios:</td>
-						<td id="comentarios"><input type="text" name="comentarios"
-							size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Numero de plazas maximo:</td>
-						<td id="plazasmaximo"><input type="number"
-							name="plazasmaximo" size="15" value=""></td>
-					</tr>
-					<tr>
-						<td>Numero de plazas restantes:</td>
-						<td id="plazasrestantes"><input type="number"
-							name="plazasrestantes" size="15" value=""></td>
-					</tr>
-
-				</table>
+			
+				<h4>Datos adicionales:</h4>
+				<hr>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Fecha limite de solicitud: </label> <input
+						class="col-sm-7" type="date" name="fechalimite">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Coste estimado (Se reprtira entre los participantes): </label> <input
+						class="col-sm-7" type="number" name="coste">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Comentarios: </label> <input
+						class="col-sm-7" type="area" name="comentarios">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Numero de plazas maximo: </label> <input
+						class="col-sm-7" type="number" name="plazasmaximo">
+				</div>
+				<div class="form-group">
+					<label class="col-sm-5 control-label">Numero de plazas restantes: </label> <input
+						class="col-sm-7" type="number" name="plazasrestantes">
+				</div>
+				
 			</div>
-			<input type="submit" value="Registrar">
+			<div class="form-center">
+				<input class="btn btn-primary" type="submit" value="Registrar viaje">
+				<input class="btn btn-danger" type="reset" value="Borrar formulario">
+			</div>
 		</div>
 	</form>
 </body>
