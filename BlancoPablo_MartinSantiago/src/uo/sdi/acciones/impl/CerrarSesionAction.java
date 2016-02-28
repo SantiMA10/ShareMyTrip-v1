@@ -24,7 +24,7 @@ public class CerrarSesionAction implements Accion{
 		}
 		else{
 			session.invalidate();
-			Log.info("Ha ocurrido un error al cerrar sesion");
+			Log.error("Ha ocurrido un error al cerrar sesion");
 			
 		}
 		
