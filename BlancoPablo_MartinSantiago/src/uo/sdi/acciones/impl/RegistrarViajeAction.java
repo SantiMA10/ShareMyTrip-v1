@@ -185,12 +185,12 @@ public class RegistrarViajeAction implements Accion {
 			} else {
 				resultado = "FRACASO";
 				request.setAttribute("errores", errores);
-				Log.debug("Error en los datos");
+				Log.error("Error en los datos, algun campo/s contiene/n datos incorrectos.");
 			}
 		} else {
 			resultado = "FRACASO";
 			request.setAttribute("errores", errores);
-			Log.debug("Error en los datos");
+			Log.error("Error en los datos, algun campo/s esta/n vacio.");
 		}
 
 		return resultado;
