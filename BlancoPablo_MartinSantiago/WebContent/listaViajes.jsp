@@ -16,6 +16,7 @@
 	<%@ include file="parts/barraNavegacion.jsp"%>
 	<div class="container">
 		<%@ include file="parts/mostrarExito.jsp"%>
+		<%@ include file="parts/mostrarErrores.jsp"%>
 		
 		
 		<c:if test="${ listaViajes.size() > 0 }">
