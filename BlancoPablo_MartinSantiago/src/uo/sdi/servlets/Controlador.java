@@ -71,7 +71,24 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 				errores.add("Para acceder a esa zona debes antes iniciar sesión o registrarte.");
 				req.setAttribute("errores", errores);
 				
-				jspSiguiente = "/login.jsp";				
+				jspSiguiente = "/login.jsp";		
+				
+			}
+			else if(opcion.equals("navegacionInvalida")){
+				
+				Log.error("Se ha intentado acceder de forma incorrecta a alguna zona.");
+				List<String> errores = new ArrayList<String>();
+				errores.add("Has accedido de forma incorrecta, vuelve a intentarlo.");
+				
+				accion = new ListarViajesAction();
+				resultado=accion.execute(req, res);
+				rolDespues=obtenerRolDeSesion(req);
+				jspSiguiente=buscarJSPSegun(rolDespues, "listarViajes", resultado);
+				
+				req.setAttribute("errores", errores);
+
+				jspSiguiente="/listaViajes.jsp";
+				
 			}
 			else{
 				Log.error("Se ha producido alguna excepción no manejada [%s]",e);
