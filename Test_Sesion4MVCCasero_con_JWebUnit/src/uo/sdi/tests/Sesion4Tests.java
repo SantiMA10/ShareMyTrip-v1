@@ -1,10 +1,15 @@
 package uo.sdi.tests;
 
-import net.sourceforge.jwebunit.junit.JWebUnit;
+import static net.sourceforge.jwebunit.junit.JWebUnit.assertTextPresent;
+import static net.sourceforge.jwebunit.junit.JWebUnit.assertTitleEquals;
+import static net.sourceforge.jwebunit.junit.JWebUnit.beginAt;
+import static net.sourceforge.jwebunit.junit.JWebUnit.gotoPage;
+import static net.sourceforge.jwebunit.junit.JWebUnit.setBaseUrl;
+import static net.sourceforge.jwebunit.junit.JWebUnit.setTextField;
+import static net.sourceforge.jwebunit.junit.JWebUnit.submit;
 
-import org.junit.*;
-
-import static net.sourceforge.jwebunit.junit.JWebUnit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class Sesion4Tests {
 
