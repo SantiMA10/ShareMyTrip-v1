@@ -14,7 +14,6 @@ import uo.sdi.model.SeatStatus;
 import uo.sdi.model.Trip;
 import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
-import uo.sdi.persistence.impl.SeatDaoJdbcImpl;
 import uo.sdi.util.RatingsContainer;
 
 public class ConfirmarPlazaAction implements Accion {
@@ -23,6 +22,7 @@ public class ConfirmarPlazaAction implements Accion {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		String resultado = "EXITO";
+		List<String> errores = new ArrayList<String>();
 		Trip viaje;
 		
 		String idViaje = (String) request.getParameter("idViaje");
@@ -34,17 +34,24 @@ public class ConfirmarPlazaAction implements Accion {
 			asiento.setTripId(Long.parseLong(idViaje));
 			asiento.setUserId(Long.parseLong(idUsuario));
 			if(action.equals("aceptar")){
-				
-				asiento.setStatus(SeatStatus.ACCEPTED);
+
 				viaje=PersistenceFactory.newTripDao().findById(Long.valueOf(request.getParameter("idViaje")));
-				viaje.setAvailablePax(viaje.getAvailablePax()-1);
-				PersistenceFactory.newTripDao().update(viaje);
+				if(viaje.getAvailablePax() > 0){
+					asiento.setStatus(SeatStatus.ACCEPTED);
+					viaje.setAvailablePax(viaje.getAvailablePax()-1);	//
+					PersistenceFactory.newTripDao().update(viaje);		
+					PersistenceFactory.newApplicationDao().delete(new Long[]{Long.parseLong(idViaje) , Long.parseLong(idUsuario)});	//Eliminar el application
+					PersistenceFactory.newSeatDao().save(asiento);
+				}
+				errores.add("No puedes añadir participantes, el viaje esta completo");
+				
 			}
 			else{
 				asiento.setStatus(SeatStatus.EXCLUDED);
+
+				PersistenceFactory.newSeatDao().save(asiento);
 			}
 
-			PersistenceFactory.newSeatDao().save(asiento);
 		}catch(Exception e){
 			resultado = "FRACASO";
 		}
@@ -75,7 +82,7 @@ public class ConfirmarPlazaAction implements Accion {
 				}
 				
 			}
-			
+			request.setAttribute("errores", errores);
 			request.setAttribute("viaje", viaje);
 			request.setAttribute("participantes", participantes);
 			request.setAttribute("puntuaciones", puntuaciones);

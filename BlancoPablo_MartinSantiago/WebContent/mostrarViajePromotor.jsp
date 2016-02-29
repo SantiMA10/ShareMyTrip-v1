@@ -16,6 +16,7 @@
 </head>
 <body>
 	<%@ include file="parts/barraNavegacion.jsp"%>
+	<%@ include file="parts/mostrarErrores.jsp" %>
 	<div class="container">
 		<h2>${ viaje.departure.city }-${  viaje.destination.city }</h2>
 		<table class="table talbe-condensed">
@@ -104,13 +105,14 @@
 				</c:forEach>
 				<tr>
 					<td>
+					<c:if test="${ modificable == true}">
 						<form action="confirmarPlaza?idViaje=${ viaje.id }&idUsuario=${ solicitante.id }&action=aceptar" method="post">
 							<input class="btn btn-primary" type="submit" value="Confirmar plaza">
 						</form>
 						<form action="confirmarPlaza?idViaje=${ viaje.id }&idUsuario=${ solicitante.id }&action=denegar" method="post">
 							<input class="btn btn-primary" type="submit" value="Denegar plaza">
 						</form>
-						
+						</c:if>
 					</td>
 					<td></td>
 				</tr>

@@ -172,8 +172,7 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setDepartureDate(fechaSalidaDate);
 				viaje.setArrivalDate(fechaLlegadaDate);
 				viaje.setClosingDate(fechaLimiteDate);
-				viaje.setAvailablePax(Integer.parseInt(plazasmaximo)
-						- Integer.parseInt(plazasrestantes));
+				viaje.setAvailablePax(Integer.parseInt(plazasrestantes));
 				viaje.setMaxPax(Integer.parseInt(plazasmaximo));
 				viaje.setEstimatedCost(Double.parseDouble(coste));
 				viaje.setComments(comentarios);
