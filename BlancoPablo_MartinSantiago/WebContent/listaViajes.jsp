@@ -22,7 +22,7 @@
 			<div class="col-md-12 form-center">
 				<form class="form-inline" action="listarViajes">
 					<div class="form-group">
-						<label>Buscar</label> 
+						<label>Buscar por ciudad de origen o destino: </label> 
 						<input type="text"
 							class="form-control" name="criterio">
 					</div>
