@@ -17,8 +17,22 @@
 	<div class="container">
 		<%@ include file="parts/mostrarExito.jsp"%>
 		<%@ include file="parts/mostrarErrores.jsp"%>
+
+		<div class="container row">
+			<div class="col-md-12 form-center">
+				<form class="form-inline" action="listarViajes">
+					<div class="form-group">
+						<label>Buscar</label> 
+						<input type="text"
+							class="form-control" name="criterio">
+					</div>
+					<input type="submit" value="buscar">
+				</form>
+			</div>
+		</div>
 		
-		
+		<hr>
+
 		<c:if test="${ listaViajes.size() > 0 }">
 			<table class="table table-hover">
 				<tr>
@@ -38,7 +52,8 @@
 			</table>
 		</c:if>
 		<c:if test="${ listaViajes.size() == 0 }">
-			<div class="alert alert-warning"> No hay viajes activos en nuestro sistema.</div>
+			<div class="alert alert-warning">No hay viajes activos en
+				nuestro sistema.</div>
 		</c:if>
 	</div>
 </body>

@@ -177,5 +177,13 @@ public class TripDaoJdbcImpl implements TripDao {
 				new TripMapper(),
 				id);
 	}
+	
+	@Override
+	public List<Trip> find(String seach) {
+		return jdbcTemplate.queryForList(
+				"TRIP_FIND", 
+				new TripMapper(),
+				"%"+seach+"%", "%"+seach+"%");
+	}
 
 }
