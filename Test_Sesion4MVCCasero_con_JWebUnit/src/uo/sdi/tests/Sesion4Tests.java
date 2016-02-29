@@ -79,7 +79,7 @@ public class Sesion4Tests {
     	setTextField("paissalida", "españa");
     	setTextField("codigopostalsalida", "12345");
     	setTextField("coordenadassalida", "55,55");
-    	setTextField("fechasalida", "2015-02-26");
+    	setTextField("fechasalida", "2016-03-26");
     	setTextField("horasalida", "15:00");
     	setTextField("callellegada", "principal");
     	setTextField("ciudadllegada", "madrid");
@@ -87,9 +87,9 @@ public class Sesion4Tests {
     	setTextField("paisllegada", "españa");
     	setTextField("codigopostalllegada", "67890");
     	setTextField("coordenadasllegada", "35,55");
-    	setTextField("fechallegada", "2015-02-26");
+    	setTextField("fechallegada", "2016-03-26");
     	setTextField("horallegada", "21:00");
-    	setTextField("fechalimite", "2015-02-25");
+    	setTextField("fechalimite", "2016-03-25");
     	setTextField("coste", "80");
     	setTextField("comentarios", "Nos vamos de fiesta a madrid, ¿quien viene?");
     	setTextField("plazasmaximo", "5");
@@ -119,52 +119,6 @@ public class Sesion4Tests {
         assertTitleEquals("ShareMyTrip - Listado de viajes");  
         assertTextPresent("Plaza solicitada correctamente.");
         
-    }
-    
-    
-    //DE AQUI PARA ABJO SON LOS TEST ORIGINALES
-    @Test
-    public void testIniciarSesionConExito() {
-//    	// Rellenando el formulario HTML
-//        beginAt("/");  // Navegar a la URL
-//        setTextField("nombreUsuario", "user1"); // Rellenar primer campo de formulario
-//        submit(); // Enviar formulario
-//        assertTitleEquals("ShareMyTrip - Página principal del usuario");  // Comprobar título de la página
-//        assertTextInElement("login", "user1");  // Comprobar cierto elemento contiene cierto texto
-//        assertTextInElement("name", "Fernando");  // Comprobar cierto elemento contiene cierto texto
-//        assertTextPresent("Es Vd el usuario número:"); // Comprobar cierto texto está presente
-    }
-
-    @Test
-    public void testIniciarSesionConExitoConQueryString() {
-//    	// Rellenando el formulario HTML
-//        beginAt("/validarse?nombreUsuario=user2");  // Navegar a la URL
-//        assertTitleEquals("ShareMyTrip - Página principal del usuario");  // Comprobar título de la página
-//        assertTextInElement("login", "user2");  // Comprobar cierto elemento contiene cierto texto
-//        assertTextInElement("name", "Luisa");  // Comprobar cierto elemento contiene cierto texto
-//        assertTextPresent("Es Vd el usuario número:"); // Comprobar cierto texto está presente
-    }
-    
-    @Test
-    public void testIniciarSesionSinExito() {
-//    	// Rellenando el formulario HTML
-//        beginAt("/");  // Navegar a la URL
-//        setTextField("nombreUsuario", "yoNoExisto"); // Rellenar primer campo de formulario
-//        submit(); // Enviar formulario
-//        assertTitleEquals("ShareMyTrip - Inicie sesión");  // Comprobar título de la página
-    }
-    
-    @Test
-    public void testListarViajesQueFuncionaBienYNoVoyABorrarDeMomento() {
-        beginAt("/");  // Navegar a la URL
-//        assertLinkPresent("listarViajes");  // Comprobar que existe el hipervínculo
-//        clickLink("listarViajes"); // Seguir el hipervínculo
-
-//        assertTitleEquals("ShareMyTrip - Listado de viajes");  // Comprobar título de la página
-
-        // La base de datos contiene 2 viajes tal y como se entrega
-//        assertElementPresent("item_0"); // Comprobar elemento presente en la página
-//        assertElementPresent("item_1"); // Comprobar elemento presente en la página
     }
 
 }
