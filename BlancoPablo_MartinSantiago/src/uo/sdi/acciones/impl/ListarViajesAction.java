@@ -17,9 +17,16 @@ public class ListarViajesAction implements Accion {
 			HttpServletResponse response) {
 		
 		List<Trip> viajes;
+		String criterio = request.getParameter("criterio");
 		
 		try {
-			viajes=PersistenceFactory.newTripDao().findAllOpenAndPaxAvailables();
+			if(criterio == null){
+				viajes=PersistenceFactory.newTripDao().findAllOpenAndPaxAvailables();
+				
+			}
+			else{
+				viajes=PersistenceFactory.newTripDao().find(criterio);
+			}
 			request.setAttribute("listaViajes", viajes);
 			Log.debug("Obtenida lista de viajes conteniendo [%d] viajes", viajes.size());
 		}

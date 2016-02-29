@@ -66,7 +66,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			//req.getSession().invalidate();
 			
-			if(opcion.equals("sesionInvalida") || accion == null){
+			if(opcion.equals("sesionInvalida") || buscarAccionParaOpcion("REGISTRADO", opcion) != null){
 				
 				Log.error("Se ha intentado acceder a una zona para usuarios registrados");
 				List<String> errores = new ArrayList<String>();
