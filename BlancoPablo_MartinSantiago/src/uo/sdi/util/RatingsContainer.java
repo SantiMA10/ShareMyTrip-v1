@@ -47,5 +47,9 @@ public class RatingsContainer {
 		return comments;
 
 	}
+	
+	public boolean isEnElViaje(Long id){
+		return !puntuaciones.containsKey(id);
+	}
 
 }

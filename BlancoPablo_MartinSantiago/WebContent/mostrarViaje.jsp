@@ -102,7 +102,7 @@
 			</table>
 				</c:forEach>
 			</c:if>
-			<c:if test="${ user.id != promotor.id }">
+			<c:if test="${ puntuaciones.isEnElViaje(user.id) }">
 				<form action="pedirPlaza?id=${ viaje.id }" method="post">
 					<input class="btn btn-primary" type="submit" value="Pedir plaza">
 				</form>
