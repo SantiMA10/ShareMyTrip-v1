@@ -1,6 +1,7 @@
 package uo.sdi.acciones.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,11 @@ public class MostrarViajePromotorAction implements Accion{
 				}
 				
 			}
-			
+			if(viaje.getClosingDate().before(new Date()))
+				request.setAttribute("modificable", false);
+			else{
+				request.setAttribute("modificable", true);
+			}
 			request.setAttribute("viaje", viaje);
 			request.setAttribute("participantes", participantes);
 			request.setAttribute("puntuaciones", puntuaciones);

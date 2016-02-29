@@ -44,7 +44,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 				throws IOException, ServletException {
 		
 		String opcion = null, resultado, jspSiguiente = null;
-		Accion accion;
+		Accion accion = null;
 		String rolAntes, rolDespues;
 		
 		try {
@@ -66,7 +66,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			//req.getSession().invalidate();
 			
-			if(opcion.equals("sesionInvalida")){
+			if(opcion.equals("sesionInvalida") || accion == null){
 				
 				Log.error("Se ha intentado acceder a una zona para usuarios registrados");
 				List<String> errores = new ArrayList<String>();
@@ -194,6 +194,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP.put("EXITO","/mostrarViaje.jsp");
 		opcionResJSP.put("mostrarViaje", resJSP);
 		
+		resJSP = new HashMap<String, String>(); 		//Mostrar viaje
+		resJSP.put("EXITO","/listarViajes");
+		opcionResJSP.put("cerrarSesion", resJSP);
+		
 		resJSP = new HashMap<String, String>();			//Registrarse
 		resJSP.put("EXITO", "/principal.jsp");
 		resJSP.put("FRACASO", "/registro.jsp");
@@ -213,11 +217,6 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP.put("EXITO","/principal.jsp");
 		resJSP.put("FRACASO","/principal.jsp");
 		opcionResJSP.put("modificarDatos", resJSP);
-		
-		resJSP=new HashMap<String, String>();			//Cerrar sesion
-		resJSP.put("EXITO","/login.jsp");
-		resJSP.put("FRACASO","/login.jsp");
-		opcionResJSP.put("cerrarSesion", resJSP);
 		
 		resJSP = new HashMap<String, String>(); 		//Listar
 		resJSP.put("EXITO","/listaViajes.jsp");
