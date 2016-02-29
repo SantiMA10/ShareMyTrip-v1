@@ -4,8 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import alb.util.log.Log;
 import uo.sdi.acciones.Accion;
+import uo.sdi.model.User;
+import alb.util.log.Log;
 
 public class CerrarSesionAction implements Accion{
 
@@ -18,9 +19,9 @@ public class CerrarSesionAction implements Accion{
 
 		HttpSession session=request.getSession();
 		if (session.getAttribute("user")!=null) {
-			String nombreUsuario = request.getParameter("nombreUsuario");
+			String nombreUsuario = ((User)session.getAttribute("user")).getLogin();
 			session.invalidate();
-			Log.info("El usuario [%s] ha cerrado sesion correctamente",nombreUsuario);
+			Log.info("El usuario [%s] ha cerrado sesion correctamente", nombreUsuario);
 		}
 		else{
 			session.invalidate();
