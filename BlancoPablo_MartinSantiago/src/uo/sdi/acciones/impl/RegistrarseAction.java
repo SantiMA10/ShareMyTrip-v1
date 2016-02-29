@@ -68,6 +68,7 @@ public class RegistrarseAction implements Accion {
 		if(errores.size() == 0){
 			//Guardamos el usuario en la base de datos
 			ud.save(user);
+			request.getSession().setAttribute("user", user);
 			Log.info("Usuario %s registrado", user.getLogin());
 		}
 		else{

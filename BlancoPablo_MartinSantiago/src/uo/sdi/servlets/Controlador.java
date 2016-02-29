@@ -199,7 +199,6 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		opcionResJSP.put("cerrarSesion", resJSP);
 		
 		resJSP = new HashMap<String, String>();			//Registrarse
-		resJSP.put("EXITO", "/principal.jsp");
 		resJSP.put("FRACASO", "/registro.jsp");
 		opcionResJSP.put("registro", resJSP);
 		
@@ -212,6 +211,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		// Mapa de navegación de usuarios registrados
 		resJSP.put("EXITO","/principal.jsp");			//Validarse
 		opcionResJSP.put("validarse", resJSP);
+		
+		resJSP=new HashMap<String, String>();			//Registrarse
+		resJSP.put("EXITO", "/principal.jsp");
+		opcionResJSP.put("registro", resJSP);
 		
 		resJSP=new HashMap<String, String>();			//Modificar datos
 		resJSP.put("EXITO","/principal.jsp");

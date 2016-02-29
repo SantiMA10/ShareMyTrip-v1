@@ -42,13 +42,13 @@ public class ConfirmarPlazaAction implements Accion {
 					PersistenceFactory.newTripDao().update(viaje);		
 					PersistenceFactory.newApplicationDao().delete(new Long[]{Long.parseLong(idViaje) , Long.parseLong(idUsuario)});	//Eliminar el application
 					PersistenceFactory.newSeatDao().save(asiento);
+					Log.debug("Se ha confirmado la plaza correctamente");
 				}
 				errores.add("No puedes añadir participantes, el viaje esta completo");
-				
+				resultado = "FRACASO";
 			}
 			else{
 				asiento.setStatus(SeatStatus.EXCLUDED);
-
 				PersistenceFactory.newSeatDao().save(asiento);
 			}
 
