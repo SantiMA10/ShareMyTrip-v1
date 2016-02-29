@@ -37,6 +37,7 @@ public class PedirPlazaAccion implements Accion {
 			return "FRACASO";
 
 		}
+		
 		Log.info("Plaza solicitada [%s]", plaza.toString());
 		request.setAttribute("mensaje", "Plaza solicitada correctamente.");
 

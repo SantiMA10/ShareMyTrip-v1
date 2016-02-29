@@ -101,7 +101,7 @@ public class RegistrarViajeAction implements Accion {
 			errores.add("No se puede dejar vacio el coordenadas");
 		if (!Comprobante.comprobarDatos(coordenadasllegada))
 			errores.add("No se puede dejar vacio el coordenadas");
-		
+
 		// Comprobacion de campos vacios
 		if (errores.isEmpty()) {
 			if (Integer.parseInt(plazasmaximo) < 0)
@@ -178,8 +178,20 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setComments(comentarios);
 				viaje.setStatus(TripStatus.OPEN);
 				viaje.setPromoterId(user.getId());
+				
+				try{
+					PersistenceFactory.newTripDao().save(viaje);
+				} catch(Exception e){
 
-				PersistenceFactory.newTripDao().save(viaje);
+					Log.error("El usuario [%s] ya ha creado un viaje para esa fecha.", user.getLogin());
+					errores = new ArrayList<String>();
+					errores.add("Ya creado un viaje para esa fecha.");
+					request.setAttribute("errores", errores);
+
+					return "FRACASO";
+
+				}
+				
 				Log.debug("Viaje [%s] registrado correctamente", viaje);
 			} else {
 				resultado = "FRACASO";
