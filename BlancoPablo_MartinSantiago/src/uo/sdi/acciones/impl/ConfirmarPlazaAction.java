@@ -44,8 +44,10 @@ public class ConfirmarPlazaAction implements Accion {
 					PersistenceFactory.newSeatDao().save(asiento);
 					Log.debug("Se ha confirmado la plaza correctamente");
 				}
+				else{
 				errores.add("No puedes añadir participantes, el viaje esta completo");
 				resultado = "FRACASO";
+				}
 			}
 			else{
 				asiento.setStatus(SeatStatus.EXCLUDED);
