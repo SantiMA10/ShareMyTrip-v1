@@ -19,12 +19,13 @@ import uo.sdi.util.MisViajesConEstado;
 import alb.util.log.Log;
 
 public class ListarViajesPrivadosAction implements Accion{
-	
+	String busqueda = "";
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		String resultado = "EXITO";
-		
+		if(request.getParameter("criterio") != null)
+			busqueda = (String) request.getParameter("criterio");
 		List<MisViajesConEstado> misViajes = new ArrayList<>();
 		User usuario = ((User)request.getSession().getAttribute("user"));	
 		
@@ -41,7 +42,8 @@ public class ListarViajesPrivadosAction implements Accion{
 			User usuario) {
 		List<Trip> viajes = PersistenceFactory.newTripDao().findByPromoterId(usuario.getId());
 		for(Trip viaje : viajes){
-			misViajes.add(new MisViajesConEstado(viaje, "Promotor"));
+			if(viaje.getDeparture().getCity().toUpperCase().contains(busqueda.toUpperCase()) || viaje.getDestination().getCity().toUpperCase().contains(busqueda.toUpperCase()))
+				misViajes.add(new MisViajesConEstado(viaje, "Promotor"));
 		}
 	}
 	
@@ -55,22 +57,22 @@ public class ListarViajesPrivadosAction implements Accion{
 		for(Application peticion : peticiones){
 			Seat plaza = sd.findByUserAndTrip(usuario.getId(), peticion.getTripId());
 			Trip viaje = td.findById(peticion.getTripId());
-			
-			if(plaza != null){
-				if(plaza.getStatus().equals(SeatStatus.ACCEPTED)){
-					misViajes.add(new MisViajesConEstado(viaje, "Admitido"));
+			if(viaje.getDeparture().getCity().toUpperCase().contains(busqueda.toUpperCase()) || viaje.getDestination().getCity().toUpperCase().contains(busqueda.toUpperCase())){
+				if(plaza != null){
+					if(plaza.getStatus().equals(SeatStatus.ACCEPTED)){
+						misViajes.add(new MisViajesConEstado(viaje, "Admitido"));
+					}
+					else{
+						misViajes.add(new MisViajesConEstado(viaje, "Excluido"));
+					}
+				}
+				else if(plaza == null && viaje.getAvailablePax() > 0){
+					misViajes.add(new MisViajesConEstado(viaje, "Pendiente"));
 				}
 				else{
-					misViajes.add(new MisViajesConEstado(viaje, "Excluido"));
+					misViajes.add(new MisViajesConEstado(viaje, "Sin plaza"));
 				}
 			}
-			else if(plaza == null && viaje.getAvailablePax() > 0){
-				misViajes.add(new MisViajesConEstado(viaje, "Pendiente"));
-			}
-			else{
-				misViajes.add(new MisViajesConEstado(viaje, "Sin plaza"));
-			}
-			
 		}
 		
 	}

@@ -18,7 +18,21 @@
 	<%@ include file="parts/mostrarErrores.jsp" %>
 	<div class="container">
 			<%@ include file="parts/mostrarExito.jsp"%>
-		<c:if test="${ misViajes.size() > 0 }">				
+		<c:if test="${ misViajes.size() > 0 }">	
+		<div class="container row">
+			<div class="col-md-12 form-center">
+				<form class="form-inline" action="listarViajesPrivados">
+					<div class="form-group">
+						<label>Buscar por ciudad de origen o destino: </label> 
+						<input type="text"
+							class="form-control" name="criterio">
+					</div>
+					<input type="submit" value="buscar">
+				</form>
+			</div>
+		</div>
+		
+		<hr>			
 			<table class="table table-hover">
 				<tr>
 					<th>Origen</th>
