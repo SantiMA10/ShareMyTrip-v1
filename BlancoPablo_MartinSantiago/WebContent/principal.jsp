@@ -53,12 +53,14 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Apellidos: </label> <input
 							class="col-sm-8" type="text" name="surname"
-							placeholder="Apellidos" value="<jsp:getProperty property="surname" name="user"/>">
+							placeholder="Apellidos"
+							value="<jsp:getProperty property="surname" name="user"/>">
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Correo electronico:
 						</label> <input class="col-sm-8" type="text" name="email"
-							placeholder="Correo electronico" value="<jsp:getProperty property="email" name="user"/>">
+							placeholder="Correo electronico"
+							value="<jsp:getProperty property="email" name="user"/>">
 					</div>
 
 					<div class="form-center">
@@ -71,20 +73,29 @@
 				<h3>Modificar contraseña</h3>
 
 				<hr>
-				<form class="form-horizontal" action="modificarContraseña" method="POST">
+				<form class="form-horizontal" action="modificarContrasena"
+					method="POST">
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Contraseña: </label> <input
-							class="col-sm-8" type="password" name="contraseña"
+						<label class="col-sm-4 control-label">Contraseña actual: </label>
+						<input class="col-sm-8" type="password" name="contrasena"
 							placeholder="Contraseña">
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Repita su
-							contraseña: </label> <input class="col-sm-8" type="password"
-							name="contraseñaNueva" placeholder="Repita su contraseña">
+						<label class="col-sm-4 control-label">Contraseña nueva: </label> <input
+							class="col-sm-8" type="password" name="contrasenaNueva"
+							placeholder="Repita su contraseña">
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label">Repita su contraseña
+							nueva: </label> <input class="col-sm-8" type="password"
+							name="contrasenaNuevaConfirmada"
+							placeholder="Repita su contraseña">
 					</div>
 
 					<div class="form-center">
-						<input class="btn btn-primary" type="submit" value="Cambiar contraseña">
+						<input class="btn btn-primary" type="submit"
+							value="Cambiar contraseña">
 					</div>
 
 				</form>

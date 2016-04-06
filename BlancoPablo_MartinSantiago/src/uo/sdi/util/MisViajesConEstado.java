@@ -5,10 +5,10 @@ import java.util.Date;
 import uo.sdi.model.Trip;
 
 public class MisViajesConEstado {
-	
+
 	private Trip viaje;
 	private String relacion;
-	
+
 	public MisViajesConEstado(Trip viaje, String relacion) {
 		this.viaje = viaje;
 		this.relacion = relacion;
@@ -21,11 +21,12 @@ public class MisViajesConEstado {
 	public String getRelacion() {
 		return relacion;
 	}
-	
-	public boolean isCancelable(){
-		return viaje.getClosingDate().after(new Date()) && !relacion.equals("Promotor");
+
+	public boolean isCancelable() {
+		return viaje.getClosingDate().after(new Date())
+				&& !relacion.equals("Promotor");
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Viaje: " + viaje.toString() + ", relacion: " + relacion;

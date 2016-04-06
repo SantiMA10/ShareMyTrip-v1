@@ -8,11 +8,11 @@ import uo.sdi.persistence.impl.TripDaoJdbcImpl;
 import uo.sdi.persistence.impl.UserDaoJdbcImpl;
 
 public class PersistenceFactory {
-	
+
 	public static Transaction newTransaction() {
 		return new TransactionJdbcImpl();
 	}
-	
+
 	public static RatingDao newRatingDao() {
 		return new RatingDaoJdbcImpl();
 	}

@@ -11,35 +11,35 @@ public class RatingsContainer {
 
 	private Map<Long, List<Rating>> puntuaciones;
 
-
 	public RatingsContainer() {
 		puntuaciones = new HashMap<Long, List<Rating>>();
 	}
 
-	public void addRating(Long id, List<Rating> puntuaciones){
+	public void addRating(Long id, List<Rating> puntuaciones) {
 		this.puntuaciones.put(id, puntuaciones);
 	}
 
-	public String getAverageRatingValue(Long id){
+	public String getAverageRatingValue(Long id) {
 		List<Rating> puntuaciones = this.puntuaciones.get(id);
 		double average = 0.0;
 
-		if(puntuaciones != null){
-			for(Rating puntuacion : puntuaciones){
+		if (puntuaciones != null) {
+			for (Rating puntuacion : puntuaciones) {
 				average += puntuacion.getValue();
 			}
-			average = average/puntuaciones.size();
+			average = average / puntuaciones.size();
 		}
 
-		return !Double.isNaN(average) ? String.valueOf(average) : "No hay valoraciones sobre este usuario." ;
+		return !Double.isNaN(average) ? String.valueOf(average)
+				: "No hay valoraciones sobre este usuario.";
 	}
 
-	public List<String> getComments(Long id){
+	public List<String> getComments(Long id) {
 		List<String> comments = new ArrayList<String>();
 		List<Rating> puntuaciones = this.puntuaciones.get(id);
-		
-		if(puntuaciones != null){
-			for(Rating puntuacion: puntuaciones){
+
+		if (puntuaciones != null) {
+			for (Rating puntuacion : puntuaciones) {
 				comments.add(puntuacion.getComment());
 			}
 		}
@@ -47,8 +47,8 @@ public class RatingsContainer {
 		return comments;
 
 	}
-	
-	public boolean isEnElViaje(Long id){
+
+	public boolean isEnElViaje(Long id) {
 		return !puntuaciones.containsKey(id);
 	}
 

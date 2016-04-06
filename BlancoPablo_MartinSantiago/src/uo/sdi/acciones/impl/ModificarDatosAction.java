@@ -55,9 +55,9 @@ public class ModificarDatosAction implements Accion {
 			Log.info("Hay campos vacios");
 			resultado = "FRACASO";
 		}
-		
+
 		request.setAttribute("errores", errores);
-		
+
 		return resultado;
 	}
 

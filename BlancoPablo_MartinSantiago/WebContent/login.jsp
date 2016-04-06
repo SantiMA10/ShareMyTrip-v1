@@ -30,7 +30,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Contraseña: </label> <input
 								class="col-sm-8" type="password" name="contrasena"
-								placeholder="Contraseña">
+								placeholder="Contrasena">
 						</div>
 						
 						<input class="btn btn-primary" type="submit" value="Iniciar sesion">

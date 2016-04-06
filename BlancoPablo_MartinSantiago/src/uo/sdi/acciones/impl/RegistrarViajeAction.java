@@ -38,26 +38,32 @@ public class RegistrarViajeAction implements Accion {
 		// De momento las fechas seran "String a pelo"
 		String callesalida = (String) request.getParameter("callesalida");
 		String ciudadsalida = (String) request.getParameter("ciudadsalida");
-		String provinciasalida = (String) request.getParameter("provinciasalida");
+		String provinciasalida = (String) request
+				.getParameter("provinciasalida");
 		String paissalida = (String) request.getParameter("paissalida");
-		String codigopostalsalida = (String) request.getParameter("codigopostalsalida");
-		String coordenadassalida = (String) request.getParameter("coordenadassalida");
+		String codigopostalsalida = (String) request
+				.getParameter("codigopostalsalida");
+		String coordenadassalida = (String) request
+				.getParameter("coordenadassalida");
 		String fechasalida = (String) request.getParameter("fechasalida");
 		String horasalida = (String) request.getParameter("horasalida");
 		String callellegada = (String) request.getParameter("callellegada");
 		String ciudadllegada = (String) request.getParameter("ciudadllegada");
-		String provinciallegada = (String) request.getParameter("provinciallegada");
+		String provinciallegada = (String) request
+				.getParameter("provinciallegada");
 		String paisllegada = (String) request.getParameter("paisllegada");
-		String codigopostalllegada = (String) request.getParameter("codigopostalllegada");
-		String coordenadasllegada = (String) request.getParameter("coordenadasllegada");
+		String codigopostalllegada = (String) request
+				.getParameter("codigopostalllegada");
+		String coordenadasllegada = (String) request
+				.getParameter("coordenadasllegada");
 		String fechallegada = (String) request.getParameter("fechallegada");
 		String horallegada = (String) request.getParameter("horallegada");
 		String fechalimite = (String) request.getParameter("fechalimite");
 		String coste = (String) request.getParameter("coste");
 		String comentarios = (String) request.getParameter("comentarios");
 		String plazasmaximo = (String) request.getParameter("plazasmaximo");
-		String plazasrestantes = (String) request.getParameter("plazasrestantes");
-
+		String plazasrestantes = (String) request
+				.getParameter("plazasrestantes");
 
 		if (!Comprobante.comprobarDatos(callesalida))
 			errores.add("No se puede dejar vacio el campo calle de salida");
@@ -178,12 +184,14 @@ public class RegistrarViajeAction implements Accion {
 				viaje.setComments(comentarios);
 				viaje.setStatus(TripStatus.OPEN);
 				viaje.setPromoterId(user.getId());
-				
-				try{
-					PersistenceFactory.newTripDao().save(viaje);
-				} catch(Exception e){
 
-					Log.error("El usuario [%s] ya ha creado un viaje para esa fecha.", user.getLogin());
+				try {
+					PersistenceFactory.newTripDao().save(viaje);
+				} catch (Exception e) {
+
+					Log.error(
+							"El usuario [%s] ya ha creado un viaje para esa fecha.",
+							user.getLogin());
 					errores = new ArrayList<String>();
 					errores.add("Ya creado un viaje para esa fecha.");
 					request.setAttribute("errores", errores);
@@ -191,7 +199,7 @@ public class RegistrarViajeAction implements Accion {
 					return "FRACASO";
 
 				}
-				
+
 				Log.debug("Viaje [%s] registrado correctamente", viaje);
 			} else {
 				resultado = "FRACASO";

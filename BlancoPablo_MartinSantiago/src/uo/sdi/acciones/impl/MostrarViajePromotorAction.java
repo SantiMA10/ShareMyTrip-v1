@@ -17,7 +17,7 @@ import uo.sdi.model.User;
 import uo.sdi.persistence.PersistenceFactory;
 import uo.sdi.util.RatingsContainer;
 
-public class MostrarViajePromotorAction implements Accion{
+public class MostrarViajePromotorAction implements Accion {
 
 	@Override
 	public String execute(HttpServletRequest request,
@@ -27,45 +27,54 @@ public class MostrarViajePromotorAction implements Accion{
 		List<User> participantes = new ArrayList<>();
 		List<User> solicitantes = new ArrayList<>();
 		RatingsContainer puntuaciones = new RatingsContainer();
-		
+
 		try {
-			
-			viaje=PersistenceFactory.newTripDao().findById(Long.valueOf(request.getParameter("id")));
-			List<Application> peticiones = PersistenceFactory.newApplicationDao().findByTripId(viaje.getId());
-						
+
+			viaje = PersistenceFactory.newTripDao().findById(
+					Long.valueOf(request.getParameter("id")));
+			List<Application> peticiones = PersistenceFactory
+					.newApplicationDao().findByTripId(viaje.getId());
+
 			System.out.println(puntuaciones);
-			
-			for(Application application : peticiones){
-				User participante = PersistenceFactory.newUserDao().findById(application.getUserId());
-				Seat asiento = PersistenceFactory.newSeatDao().findByUserAndTrip(participante.getId(), viaje.getId());
-				
-				if(asiento != null && asiento.getStatus().equals(SeatStatus.ACCEPTED)){
+
+			for (Application application : peticiones) {
+				User participante = PersistenceFactory.newUserDao().findById(
+						application.getUserId());
+				Seat asiento = PersistenceFactory.newSeatDao()
+						.findByUserAndTrip(participante.getId(), viaje.getId());
+
+				if (asiento != null
+						&& asiento.getStatus().equals(SeatStatus.ACCEPTED)) {
 					participantes.add(participante);
-					puntuaciones.addRating(participante.getId(), PersistenceFactory.newRatingDao().findByAboutUser(participante.getId()));
+					puntuaciones.addRating(
+							participante.getId(),
+							PersistenceFactory.newRatingDao().findByAboutUser(
+									participante.getId()));
 				}
-				if(asiento == null){
+				if (asiento == null) {
 					solicitantes.add(participante);
-					puntuaciones.addRating(participante.getId(), PersistenceFactory.newRatingDao().findByAboutUser(participante.getId()));
+					puntuaciones.addRating(
+							participante.getId(),
+							PersistenceFactory.newRatingDao().findByAboutUser(
+									participante.getId()));
 				}
-				
+
 			}
-			if(viaje.getClosingDate().before(new Date()))
+			if (viaje.getClosingDate().before(new Date()))
 				request.setAttribute("modificable", false);
-			else{
+			else {
 				request.setAttribute("modificable", true);
 			}
 			request.setAttribute("viaje", viaje);
 			request.setAttribute("participantes", participantes);
 			request.setAttribute("puntuaciones", puntuaciones);
 			request.setAttribute("solicitantes", solicitantes);
-			
+
 			Log.debug("Obtenida informacion del viaje [%d]", viaje);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			Log.error("Algo ha ocurrido obteniendo lista de viajes");
 		}
 		return "EXITO";
 	}
 
-	
 }
